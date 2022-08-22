@@ -32,9 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(yaml
-     csv
-     ;; ----------------------------------------------------------------
+   '(;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
@@ -50,11 +48,15 @@ This function should only modify configuration layer settings."
      ;;          counsel-spotify-client-id "b1df40967cc24f128afca0b5828d42d8"
      ;;          counsel-spotify-client-secret "2cb6f66e5a0c4544b71622745ea637f6")
      ;; xkcd
-     ;; c-c++
+     c-c++
      ;; php
      ;; ruby
      ;; asm
+     react
      typescript
+     sql
+     csv
+     yaml
      html
      lsp
      themes-megapack
@@ -253,7 +255,8 @@ It should only modify the values of Spacemacs settings."
 
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
-   dotspacemacs-themes '(zenburn
+   dotspacemacs-themes '(doom-oceanic-next
+                         zenburn
                          solarized-light
                          solarized-dark
                          spacemacs-dark
@@ -276,7 +279,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Fira Code"
+   dotspacemacs-default-font '("Source Code Pro" ;; "Fira Code"
                                :size 12.0
                                :weight normal
                                :width normal)
@@ -355,7 +358,7 @@ It should only modify the values of Spacemacs settings."
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
    ;; right; if there is insufficient space it displays it at the bottom.
    ;; (default 'bottom)
-   dotspacemacs-which-key-position 'bottom
+   dotspacemacs-which-key-position 'right-then-bottom
 
    ;; Control where `switch-to-buffer' displays the buffer. If nil,
    ;; `switch-to-buffer' displays the buffer in the current window even if
@@ -499,7 +502,7 @@ It should only modify the values of Spacemacs settings."
    ;; performance issues, instead of calculating the frame title by
    ;; `spacemacs/title-prepare' all the time.
    ;; (default "%I@%S")
-   dotspacemacs-frame-title-format "%I@%S"
+   dotspacemacs-frame-title-format "%I@%s@%f@%m"
 
    ;; Format specification for setting the icon title format
    ;; (default nil - same as frame-title-format)
@@ -589,7 +592,7 @@ before packages are loaded."
   ;; (setq counsel-spotify-client-secret "7a6b41fdd292498c9ca65a3484f12090")
   ;; (global-set-key (kbd "C-c s f") 'counsel-spotify-next)
   ;; (global-set-key (kbd "C-c s b") 'counsel-spotify-previous)
-  ;; (global-set-key (kbd "C-c s p") 'counsel-spotify-toggle-play-pause) 
+  ;; (global-set-key (kbd "C-c s p") 'counsel-spotify-toggle-play-pause)
   (setq parrot-rotate-dict
         '(
           (:rot ("alpha" "beta") :caps t :lower nil)
