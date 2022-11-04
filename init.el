@@ -48,17 +48,20 @@ This function should only modify configuration layer settings."
      ;;          counsel-spotify-client-id "b1df40967cc24f128afca0b5828d42d8"
      ;;          counsel-spotify-client-secret "2cb6f66e5a0c4544b71622745ea637f6")
      ;; xkcd
-     c-c++
      ;; php
      ;; ruby
      ;; asm
      react
+     javascript
+     auto-completion
+     c-c++
      typescript
      sql
      csv
      yaml
      html
-     lsp
+     (lsp :variables
+          lsp-lens-enable t)
      themes-megapack
      emoji
      java
@@ -67,7 +70,6 @@ This function should only modify configuration layer settings."
      git
      helm
      python
-     javascript
      spell-checking
      syntax-checking
      version-control
@@ -94,7 +96,10 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
                                       ;; all-the-icons
-                                      ;; beacon
+                                      beacon
+                                      green-screen-theme
+                                      ;; fira-code-mode
+                                      almost-mono-themes
                                       parrot
                                       ;; (parrot
                                       ;;  :config
@@ -255,8 +260,11 @@ It should only modify the values of Spacemacs settings."
 
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
-   dotspacemacs-themes '(doom-oceanic-next
+   dotspacemacs-themes '(almost-mono-black
+                         green-screen
+                         doom-oceanic-next
                          zenburn
+                         almost-mono-gray-theme
                          solarized-light
                          solarized-dark
                          spacemacs-dark
@@ -279,7 +287,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Source Code Pro" ;; "Fira Code"
+   dotspacemacs-default-font '("Fira Code" ;;"Source Code Pro"
                                :size 12.0
                                :weight normal
                                :width normal)
@@ -582,7 +590,70 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  ;; (beacon-mode 1)
+  (defun fira-code-mode--make-alist (list)
+    "Generate prettify-symbols alist from LIST."
+    (let ((idx -1))
+      (mapcar
+      (lambda (s)
+        (setq idx (1+ idx))
+        (let* ((code (+ #Xe100 idx))
+            (width (string-width s))
+            (prefix ())
+            (suffix '(?\s (Br . Br)))
+            (n 1))
+      (while (< n width)
+        (setq prefix (append prefix '(?\s (Br . Bl))))
+        (setq n (1+ n)))
+      (cons s (append prefix suffix (list (decode-char 'ucs code))))))
+      list)))
+
+  (defconst fira-code-mode--ligatures
+    '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
+      "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
+      "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
+      "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
+      ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
+      "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
+      "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
+      "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
+      ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
+      "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
+      "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
+      "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
+      "x" ":" "+" "+" "*"))
+
+  (defvar fira-code-mode--old-prettify-alist)
+
+  (defun fira-code-mode--enable ()
+    "Enable Fira Code ligatures in current buffer."
+    (setq-local fira-code-mode--old-prettify-alist prettify-symbols-alist)
+    (setq-local prettify-symbols-alist (append (fira-code-mode--make-alist fira-code-mode--ligatures) fira-code-mode--old-prettify-alist))
+    (prettify-symbols-mode t))
+
+  (defun fira-code-mode--disable ()
+    "Disable Fira Code ligatures in current buffer."
+    (setq-local prettify-symbols-alist fira-code-mode--old-prettify-alist)
+    (prettify-symbols-mode -1))
+
+  (define-minor-mode fira-code-mode
+    "Fira Code ligatures minor mode"
+    :lighter " Fira Code"
+    (setq-local prettify-symbols-unprettify-at-point 'right-edge)
+    (if fira-code-mode
+        (fira-code-mode--enable)
+      (fira-code-mode--disable)))
+
+  (defun fira-code-mode--setup ()
+    "Setup Fira Code Symbols"
+    (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol"))
+
+
+  (provide 'fira-code-mode)
+
+  ;; Fix issue executing python file using lsp
+  (setq python-shell-completion-native-enable "python3")
+
+  (beacon-mode 1)
   ;; (scroll-bar-mode 'right)
   ;; (spacemacs/toggle-mode-line-point-position)
   ;; (scroll-bar-mode)
