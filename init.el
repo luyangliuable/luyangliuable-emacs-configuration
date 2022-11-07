@@ -648,19 +648,22 @@ before packages are loaded."
     (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol"))
 
 
-  (provide 'fira-code-mode)
 
   ;; Fix issue executing python file using lsp
   (setq python-shell-completion-native-enable "python3")
 
+  ;; Enable modes
   (beacon-mode 1)
+  (provide 'fira-code-mode)
+
+  ;; Disable modes
+  (smartparens-global-mode 0)
+
   ;; (scroll-bar-mode 'right)
   ;; (spacemacs/toggle-mode-line-point-position)
   ;; (scroll-bar-mode)
-  (setq counsel-spotify-client-id "b1df40967cc24f128afca0b5828d42d8")
-  (setq counsel-spotify-client-secret "2cb6f66e5a0c4544b71622745ea637f6")
-  ;; (setq counsel-spotify-client-id "fae6e6ef787743fea5b649117d9a9b2a")
-  ;; (setq counsel-spotify-client-secret "7a6b41fdd292498c9ca65a3484f12090")
+  (setq counsel-spotify-client-id "$token")
+  (setq counsel-spotify-client-secret "$tokensec")
   ;; (global-set-key (kbd "C-c s f") 'counsel-spotify-next)
   ;; (global-set-key (kbd "C-c s b") 'counsel-spotify-previous)
   ;; (global-set-key (kbd "C-c s p") 'counsel-spotify-toggle-play-pause)
