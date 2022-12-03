@@ -85,7 +85,6 @@ This function should only modify configuration layer settings."
              colors-enable-nyan-cat-progress-bar t))
 
 
-
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
    ;; loaded using load/require/use-package in the user-config section below in
