@@ -260,9 +260,9 @@ It should only modify the values of Spacemacs settings."
 
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
-   dotspacemacs-themes '(almost-mono-black
+   dotspacemacs-themes '(doom-oceanic-next
                          green-screen
-                         doom-oceanic-next
+                         almost-mono-black
                          zenburn
                          almost-mono-gray-theme
                          solarized-light
@@ -287,7 +287,8 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Fira Code" ;;"Source Code Pro"
+   dotspacemacs-default-font '("Fira Code"
+                               ;; "Source Code Pro"
                                :size 12.0
                                :weight normal
                                :width normal)
@@ -575,7 +576,6 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
 )
 
-
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
 This function is called only while dumping Spacemacs configuration. You can
@@ -673,7 +673,7 @@ before packages are loaded."
           ;; => rotations are "Alpha" "Beta"
 
           (:rot ("snek" "snake" "stawp"))
-          ;; => rotations are "snek" "snake" "stawp"
+          ;; => rotatons are "snek" "snake" "stawp"
 
           (:rot ("yes" "no") :caps t :upcase t)
           ;; => rotations are "yes" "no", "Yes" "No", "YES" "NO"
