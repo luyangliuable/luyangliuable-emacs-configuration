@@ -51,38 +51,41 @@ This function should only modify configuration layer settings."
      ;; php
      ;; ruby
      ;; asm
-     react
-     javascript
      auto-completion
      c-c++
-     typescript
-     sql
+     csharp
      csv
-     yaml
-     html
-     (lsp :variables
-          lsp-lens-enable t)
-     themes-megapack
-     emoji
-     java
      emacs-lisp
-     json
+     emoji
      git
      helm
-     python
-     spell-checking
-     syntax-checking
-     version-control
+     html
+     java
+     javascript
+     json
      markdown
      multiple-cursors
      org
+     python
+     react
+     rust
+     spell-checking
+     sql
+     syntax-checking
+     themes-megapack
      treemacs
+     typescript
+     version-control
+     yaml
+     (lsp :variables
+          lsp-lens-enable t)
      (shell :variables
             shell-default-height 25
             shell-default-position 'bottom)
      (colors :variables
              colors-colorize-identifiers 'all
              colors-enable-nyan-cat-progress-bar t))
+
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -94,12 +97,12 @@ This function should only modify configuration layer settings."
 ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
-                                      ;; all-the-icons
+                                      slime
                                       beacon
                                       green-screen-theme
-                                      ;; fira-code-mode
                                       almost-mono-themes
                                       parrot
+                                      ;; fira-code-mode
                                       ;; (parrot
                                       ;;  :config
                                       ;;  (parrot-mode))
@@ -575,6 +578,7 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
 )
 
+
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
 This function is called only while dumping Spacemacs configuration. You can
@@ -646,7 +650,8 @@ before packages are loaded."
     "Setup Fira Code Symbols"
     (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol"))
 
-
+  ;; enable run lisp in gnu emacs
+  (setq inferior-lisp-program "sbcl")
 
   ;; Fix issue executing python file using lsp
   (setq python-shell-completion-native-enable "python3")
