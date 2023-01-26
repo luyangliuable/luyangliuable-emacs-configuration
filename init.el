@@ -61,7 +61,7 @@ This function should only modify configuration layer settings."
      git
      helm
      html
-     (hello-world :variables hello-world-enable-hello-world t)
+     bye-world
      java
      javascript
      json
