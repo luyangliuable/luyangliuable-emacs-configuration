@@ -1,2 +1,4 @@
 woff*
 archive
+*.swp
+*.html

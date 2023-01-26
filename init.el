@@ -52,7 +52,7 @@ This function should only modify configuration layer settings."
      ;; php
      ;; ruby
      ;; asm
-     ;; emacs-lisp
+     emacs-lisp
      auto-completion
      c-c++
      csharp
@@ -97,272 +97,274 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
 ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(
+   dotspacemacs-additional-packages '(parrot
                                       slime
                                       beacon
-                                      green-screen-theme
-                                      almost-mono-themes
-                                      parrot
+                                      ;; (beacon :location "~/beacon")
                                       )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(spotify
-                                    multi
-                                    xkcd
-                                    yaml-mode
-                                    x86-lookup
-                                    nasm-mode
-                                    csv-mode
-                                    zonokai-emacs
-                                    ;; zenburn-theme
-                                    ;; zen-and-art-theme
-                                    ;; yapfify
-                                    xterm-color
-                                    ws-butler
-                                    writeroom-mode
-                                    ;; winum
-                                    white-sand-theme
-                                    web-mode
-                                    web-beautify
-                                    ;; volatile-highlights
-                                    ;; uuidgen
-                                    underwater-theme
-                                    ujelly-theme
-                                    twilight-theme
-                                    twilight-bright-theme
-                                    twilight-anti-bright-theme
-                                    ;; treemacs-projectile
-                                    toxi-theme
-                                    terminal-here
-                                    ;; tao-theme
-                                    tangotango-theme
-                                    tango-plus-theme
-                                    tango-2-theme
-                                    tagedit
-                                    symon
-                                    symbol-overlay
-                                    sunny-day-theme
-                                    sublime-themes
-                                    subatomic256-theme
-                                    subatomic-theme
-                                    ;; string-inflection
-                                    ;; string-edit
-                                    sphinx-doc
-                                    spacegray-theme
-                                    soothe-theme
-                                    solarized-theme
-                                    soft-stone-theme
-                                    soft-morning-theme
-                                    soft-charcoal-theme
-                                    smyx-theme
-                                    ;; smeargle
-                                    slim-mode
-                                    shell-pop
-                                    seti-theme
-                                    seeing-is-believing
-                                    scss-mode
-                                    sass-mode
-                                    rvm
-                                    ruby-tools
-                                    ruby-test-mode
-                                    ruby-refactor
-                                    ruby-hash-syntax
-                                    ;; rubocopfmt
-                                    ;; rubocop
-                                    ;; rspec-mode
-                                    ;; robe
-                                    reverse-theme
-                                    ;; restart-emacs
-                                    rebecca-theme
-                                    ;; rbenv
-                                    ;; rake
-                                    ;; rainbow-identifiers
-                                    ;; rainbow-delimiters
-                                    railscasts-theme
-                                    ;; quickrun
-                                    pytest
-                                    pyenv-mode
-                                    pydoc
-                                    py-isort
-                                    purple-haze-theme
-                                    pug-mode
-                                    professional-theme
-                                    ;; prettier-js
-                                    ;; popwin
-                                    poetry
-                                    plantuml-mode
-                                    planet-theme
-                                    ;; pippel
-                                    pipenv
-                                    pip-requirements
-                                    phpunit
-                                    phpcbf
-                                    php-extras
-                                    php-auto-yasnippets
-                                    phoenix-dark-pink-theme
-                                    phoenix-dark-mono-theme
-                                    ;; paradox
-                                    ;; overseer
-                                    ;; open-junk-file
-                                    omtose-phellack-theme
-                                    oldlace-theme
-                                    occidental-theme
-                                    obsidian-theme
-                                    npm-mode
-                                    ;; nose
-                                    nodejs-repl
-                                    noctilux-theme
-                                    naquadah-theme
-                                    nameless
-                                    ;; mvn
-                                    mustang-theme
-                                    ;; multi-term
-                                    monokai-theme
-                                    monochrome-theme
-                                    molokai-theme
-                                    moe-theme
-                                    modus-themes
-                                    mmm-mode
-                                    minitest
-                                    minimal-theme
-                                    maven-test-mode
-                                    material-theme
-                                    majapahit-theme
-                                    madhat2r-theme
-                                    lush-theme
-                                    ;; markdown-toc
-                                    ;; macrostep
-                                    ;; lorem-ipsum
-                                    ;; hl-todo
-                                    ;; auto-yasnippet
-                                    ;; auto-highlight-symbol
-                                    ;; auto-dictionary
-                                    ;; auto-compile
-                                    ;; elisp-slime-nav
-                                    ;; elisp-def
-                                    ;; golden-ratio
-                                    ;; highlight-parentheses
-                                    ;; highlight-numbers
-                                    ;; highlight-indentation
-                                    ;; livid-mode
-                                    ;; live-py-mode
-                                    ;; link-hint
-                                    light-soap-theme
-                                    kaolin-themes
-                                    ;; json-reformat
-                                    ;; json-navigator
-                                    ;; json-mode
-                                    ;; js2-refactor
-                                    ;; js-doc
-                                    jbeans-theme
-                                    jazz-theme
-                                    ir-black-theme
-                                    ;; inspector
-                                    inkpot-theme
-                                    ;; info+
-                                    ;; indent-guide
-                                    ;; importmagic
-                                    ;; impatient-mode
-                                    ;; hybrid-mode
-                                    ;; hungry-delete
-                                    ;; hide-comnt
-                                    heroku-theme
-                                    hemisu-theme
-                                    hc-zenburn-theme
-                                    gruvbox-theme
-                                    gruber-darker-theme
-                                    ;; groovy-mode
-                                    ;; groovy-imports
-                                    grandshell-theme
-                                    gotham-theme
-                                    ;; google-translate
-                                    ;; google-c-style
-                                    ;; gnuplot
-                                    ;; git-modes
-                                    ;; git-messenger
-                                    ;; git-link
-                                    ;; git-gutter-fringe
-                                    ;; gh-md
-                                    ;; gendoxy
-                                    ;; geben
-                                    gandalf-theme
-                                    ;; fuzzy
-                                    ;; font-lock+
-                                    ;; flx-ido
-                                    flatui-theme
-                                    flatland-theme
-                                    farmhouse-theme
-                                    fancy-battery
-                                    eziam-theme
-                                    ;; eyebrowse
-                                    ;; expand-region
-                                    exotica-theme
-                                    ;; eval-sexp-fu
-                                    espresso-theme
-                                    ;; eshell-z
-                                    ;; eshell-prompt-extras
-                                    ;; esh-help
-                                    ;; emr
-                                    ;; emojify
-                                    ;; emoji-cheat-sheet-plus
-                                    ;; emmet-mode
-                                    ;; editorconfig
-                                    ;; dumb-jump
-                                    ;; drupal-mode
-                                    ;; drag-stuff
-                                    dracula-theme
-                                    ;; dotenv-mode
-                                    ;; doom-themes
-                                    django-theme
-                                    ;; disaster
-                                    ;; dired-quick-sort
-                                    ;; diminish
-                                    ;; devdocs
-                                    ;; define-word
-                                    darktooth-theme
-                                    darkokai-theme
-                                    darkmine-theme
-                                    darkburn-theme
-                                    dakrone-theme
-                                    ;; cython-mode
-                                    cyberpunk-theme
-                                    ;; cpp-auto-include
-                                    ;; company-ycmd
-                                    ;; company-web
-                                    ;; company-rtags
-                                    ;; company-phpactor
-                                    ;; company-php
-                                    ;; company-emoji
-                                    ;; company-c-headers
-                                    ;; company-anaconda
-                                    ;; column-enforce-mode
-                                    color-theme-sanityinc-tomorrow
-                                    color-theme-sanityinc-solarized
-                                    ;; color-identifiers-mode
-                                    clues-theme
-                                    ;; clean-aindent-mode
-                                    ;; chruby
-                                    chocolate-theme
-                                    cherry-blossom-theme
-                                    ;; centered-cursor-mode
-                                    ;; ccls
-                                    busybee-theme
-                                    ;; bundler
-                                    bubbleberry-theme
-                                    ;; browse-at-remote
-                                    ;; blacken
-                                    birds-of-paradise-plus-theme
-                                    badwolf-theme
-                                    apropospriate-theme
-                                    anti-zenburn-theme
-                                    ample-zen-theme
-                                    ample-theme
-                                    alect-themes
+   dotspacemacs-excluded-packages '(;; ----------------------------------------------------------------
+                                    ;; Mainly Redundant Themes and Less often used packages
+                                    ;; To speed up emacs and save space
+                                    ;; ----------------------------------------------------------------
                                     ;; aggressive-indent
+                                    ;; auto-compile
+                                    ;; auto-dictionary
+                                    ;; auto-highlight-symbol
+                                    ;; auto-yasnippet
+                                    ;; blacken
+                                    ;; browse-at-remote
+                                    ;; bundler
+                                    ;; ccls
+                                    ;; centered-cursor-mode
+                                    ;; chruby
+                                    ;; clean-aindent-mode
+                                    ;; color-identifiers-mode
+                                    ;; column-enforce-mode
+                                    ;; company-anaconda
+                                    ;; company-c-headers
+                                    ;; company-emoji
+                                    ;; company-php
+                                    ;; company-phpactor
+                                    ;; company-rtags
+                                    ;; company-web
+                                    ;; company-ycmd
+                                    ;; cpp-auto-include
+                                    ;; cython-mode
+                                    ;; define-word
+                                    ;; devdocs
+                                    ;; diminish
+                                    ;; dired-quick-sort
+                                    ;; disaster
+                                    ;; doom-themes
+                                    ;; dotenv-mode
+                                    ;; drag-stuff
+                                    ;; drupal-mode
+                                    ;; dumb-jump
+                                    ;; editorconfig
+                                    ;; elisp-def
+                                    ;; elisp-slime-nav
+                                    ;; emmet-mode
+                                    ;; emoji-cheat-sheet-plus
+                                    ;; emojify
+                                    ;; emr
+                                    ;; esh-help
+                                    ;; eshell-prompt-extras
+                                    ;; eshell-z
+                                    ;; eval-sexp-fu
+                                    ;; expand-region
+                                    ;; eyebrowse
+                                    ;; flx-ido
+                                    ;; font-lock+
+                                    ;; fuzzy
+                                    ;; geben
+                                    ;; gendoxy
+                                    ;; gh-md
+                                    ;; git-gutter-fringe
+                                    ;; git-link
+                                    ;; git-messenger
+                                    ;; git-modes
+                                    ;; gnuplot
+                                    ;; golden-ratio
+                                    ;; google-c-style
+                                    ;; google-translate
+                                    ;; groovy-imports
+                                    ;; groovy-mode
+                                    ;; hide-comnt
+                                    ;; highlight-indentation
+                                    ;; highlight-numbers
+                                    ;; highlight-parentheses
+                                    ;; hl-todo
+                                    ;; hungry-delete
+                                    ;; hybrid-mode
+                                    ;; impatient-mode
+                                    ;; importmagic
+                                    ;; indent-guide
+                                    ;; info+
+                                    ;; inspector
+                                    ;; js-doc
+                                    ;; js2-refactor
+                                    ;; json-mode
+                                    ;; json-navigator
+                                    ;; json-reformat
+                                    ;; link-hint
+                                    ;; live-py-mode
+                                    ;; livid-mode
+                                    ;; lorem-ipsum
+                                    ;; macrostep
+                                    ;; markdown-toc
+                                    ;; multi-term
+                                    ;; mvn
+                                    ;; nose
+                                    ;; open-junk-file
+                                    ;; overseer
+                                    ;; paradox
+                                    ;; pippel
+                                    ;; popwin
+                                    ;; prettier-js
+                                    ;; quickrun
+                                    ;; rainbow-delimiters
+                                    ;; rainbow-identifiers
+                                    ;; rake
+                                    ;; rbenv
+                                    ;; restart-emacs
+                                    ;; robe
+                                    ;; rspec-mode
+                                    ;; rubocop
+                                    ;; rubocopfmt
+                                    ;; smeargle
+                                    ;; string-inflection
+                                    ;; tao-theme
+                                    ;; treemacs-projectile
+                                    ;; uuidgen
+                                    ;; volatile-highlights
+                                    ;; winum
+                                    ;; yapfify
+                                    ;; zen-and-art-theme
+                                    ;; zenburn-theme
                                     afternoon-theme
+                                    alect-themes
+                                    ample-theme
+                                    ample-zen-theme
+                                    anti-zenburn-theme
+                                    apropospriate-theme
+                                    badwolf-theme
+                                    birds-of-paradise-plus-theme
+                                    bubbleberry-theme
+                                    busybee-theme
+                                    cherry-blossom-theme
+                                    chocolate-theme
+                                    clues-theme
+                                    color-theme-sanityinc-solarized
+                                    color-theme-sanityinc-tomorrow
+                                    csv-mode
+                                    cyberpunk-theme
+                                    dakrone-theme
+                                    darkburn-theme
+                                    darkmine-theme
+                                    darkokai-theme
+                                    darktooth-theme
+                                    django-theme
+                                    dracula-theme
+                                    espresso-theme
+                                    exotica-theme
+                                    eziam-theme
+                                    fancy-battery
+                                    farmhouse-theme
+                                    flatland-theme
+                                    flatui-theme
+                                    gandalf-theme
+                                    gotham-theme
+                                    grandshell-theme
+                                    gruber-darker-theme
+                                    gruvbox-theme
+                                    hc-zenburn-theme
+                                    hemisu-theme
+                                    heroku-theme
+                                    inkpot-theme
+                                    ir-black-theme
+                                    jazz-theme
+                                    jbeans-theme
+                                    kaolin-themes
+                                    light-soap-theme
+                                    lush-theme
+                                    madhat2r-theme
+                                    majapahit-theme
+                                    material-theme
+                                    maven-test-mode
+                                    minimal-theme
+                                    minitest
+                                    mmm-mode
+                                    modus-themes
+                                    moe-theme
+                                    molokai-theme
+                                    monochrome-theme
+                                    monokai-theme
+                                    multi
+                                    mustang-theme
+                                    nameless
+                                    naquadah-theme
+                                    nasm-mode
+                                    noctilux-theme
+                                    nodejs-repl
+                                    npm-mode
+                                    obsidian-theme
+                                    occidental-theme
+                                    oldlace-theme
+                                    omtose-phellack-theme
+                                    phoenix-dark-mono-theme
+                                    phoenix-dark-pink-theme
+                                    php-auto-yasnippets
+                                    php-extras
+                                    phpcbf
+                                    phpunit
+                                    pip-requirements
+                                    pipenv
+                                    planet-theme
+                                    plantuml-mode
+                                    poetry
+                                    professional-theme
+                                    pug-mode
+                                    purple-haze-theme
+                                    py-isort
+                                    pydoc
+                                    pyenv-mode
+                                    pytest
+                                    railscasts-theme
+                                    rebecca-theme
+                                    reverse-theme
+                                    ruby-hash-syntax
+                                    ruby-refactor
+                                    ruby-test-mode
+                                    ruby-tools
+                                    rvm
+                                    sass-mode
+                                    scss-mode
+                                    seeing-is-believing
+                                    seti-theme
+                                    shell-pop
+                                    slim-mode
+                                    smyx-theme
+                                    soft-charcoal-theme
+                                    soft-morning-theme
+                                    soft-stone-theme
+                                    solarized-theme
+                                    soothe-theme
+                                    spacegray-theme
+                                    sphinx-doc
+                                    spotify
+                                    string-edit ;; TODO this doesn't work so it is excluded
+                                    subatomic-theme
+                                    subatomic256-theme
+                                    sublime-themes
+                                    sunny-day-theme
+                                    symbol-overlay
+                                    symon
+                                    tagedit
+                                    tango-2-theme
+                                    tango-plus-theme
+                                    tangotango-theme
+                                    terminal-here
+                                    toxi-theme
+                                    twilight-anti-bright-theme
+                                    twilight-bright-theme
+                                    twilight-theme
+                                    ujelly-theme
+                                    underwater-theme
+                                    web-beautify
+                                    web-mode
+                                    white-sand-theme
+                                    ;; writeroom-mode
+                                    ws-butler
+                                    x86-lookup
+                                    xkcd
+                                    xterm-color
+                                    yaml-mode
+                                    zonokai-emacs
                                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -386,7 +388,7 @@ It should only modify the values of Spacemacs settings."
    ;; to compile Emacs 27 from source following the instructions in file
    ;; EXPERIMENTAL.org at to root of the git repository.
    ;; (default nil)
-   dotspacemacs-enable-emacs-pdumper nil
+   dotspacemacs-enable-emacs-pdumper t
 
    ;; Name of executable file pointing to emacs 27+. This executable must be
    ;; in your PATH.
@@ -479,8 +481,8 @@ It should only modify the values of Spacemacs settings."
    ;; pair of numbers, e.g. `(recents-by-project . (7 .  5))', where the first
    ;; number is the project limit and the second the limit on the recent files
    ;; within a project.
-   dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 7))
+   dotspacemacs-startup-lists '((recents . 15)
+                                (projects . 10))
 
    ;; True if the home buffer should respond to resize events. (default t)
    dotspacemacs-startup-buffer-responsive t
@@ -541,8 +543,8 @@ It should only modify the values of Spacemacs settings."
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Fira Code"
                                ;; "Source Code Pro"
-                               :size 12.0
-                               :weight normal
+                               :size 13.0
+                               :weight semi-bold
                                :width normal)
 
    ;; The leader key (default "SPC")
@@ -609,7 +611,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil, the paste transient-state is enabled. While enabled, after you
    ;; paste something, pressing `C-j' and `C-k' several times cycles through the
    ;; elements in the `kill-ring'. (default nil)
-   dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-enable-paste-transient-state t
 
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
@@ -635,7 +637,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-at-startup t
 
    ;; If non-nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
@@ -762,15 +764,16 @@ It should only modify the values of Spacemacs settings."
    ;; If nil then Spacemacs uses default `frame-title-format' to avoid
    ;; performance issues, instead of calculating the frame title by
    ;; `spacemacs/title-prepare' all the time.
-   ;; (default "%I@%S")
-   dotspacemacs-frame-title-format "%I@%s@%f@%m"
+   ;; (default "%i@%s")
+   ;; (previous "%I@%s@%f@%m")
+   dotspacemacs-frame-title-format %i@%s
 
    ;; Format specification for setting the icon title format
    ;; (default nil - same as frame-title-format)
    dotspacemacs-icon-title-format nil
 
    ;; Show trailing whitespace (default t)
-   dotspacemacs-show-trailing-whitespace t
+   dotspacemacs-show-trailing-whitespace nil
 
    ;; Delete whitespace while saving buffer. Possible values are `all'
    ;; to aggressively delete empty line and long sequences of whitespace,
@@ -843,6 +846,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;                                   Fira (not working)                        ;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (defun fira-code-mode--make-alist (list)
     "Generate prettify-symbols alist from LIST."
     (let ((idx -1))
@@ -906,194 +914,207 @@ before packages are loaded."
   ;; Fix issue executing python file using lsp
   (setq python-shell-completion-native-enable "python3")
 
-  ;; Enable modes
-  (beacon-mode 1)
-  (provide 'fira-code-mode)
 
-  ;; Disable modes
-  (smartparens-global-mode 0)
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;                                   Enable Mode                               ;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (parrot-mode)
+  (scroll-bar-mode)
+  (ignore-errors (beacon-mode))
+  (fringe-mode "right-only")
+  ;; (display-time)
+  ;; (provide 'fira-code-mode)
+  ;; (require 'dap-python)
+  ;; (setq dap-python-executable "python3")
+  ;; (blink-cursor-mode 1)
+  ;; (smartparens-mode 0)
 
-  ;; (scroll-bar-mode 'right)
-  ;; (spacemacs/toggle-mode-line-point-position)
-  ;; (scroll-bar-mode)
-  (setq counsel-spotify-client-id "$token")
-  (setq counsel-spotify-client-secret "$tokensec")
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;                                  Disable Mode                               ;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; (spacemacs/toggle-mode-line-battery)
+  ;; (spacemacs/toggle-minibuffer-system-monitor)
+  ;; (smartparens-global-mode 0)
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;                                   Spotify                                   ;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; (setq counsel-spotify-client-id "$token")
+  ;; (setq counsel-spotify-client-secret "$tokensec")
   ;; (global-set-key (kbd "C-c s f") 'counsel-spotify-next)
   ;; (global-set-key (kbd "C-c s b") 'counsel-spotify-previous)
   ;; (global-set-key (kbd "C-c s p") 'counsel-spotify-toggle-play-pause)
-  (setq parrot-rotate-dict
-        '(
-          (:rot ("alpha" "beta") :caps t :lower nil)
-          ;; => rotations are "Alpha" "Beta"
 
-          (:rot ("snek" "snake" "stawp"))
-          ;; => rotatons are "snek" "snake" "stawp"
 
-          (:rot ("yes" "no") :caps t :upcase t)
-          ;; => rotations are "yes" "no", "Yes" "No", "YES" "NO"
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;                                    Parrot                                   ;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (setq parrot-rotate-dict '(
+      (:rot ("alpha" "beta") :caps t :lower nil)
+      ;; => rotations are "Alpha" "Beta"
 
-          (:rot ("1" "0"))
-          ;; => rotations for 1 and 0
+      (:rot ("snek" "snake" "stawp"))
+      ;; => rotatons are "snek" "snake" "stawp"
 
-          (:rot ("&" "|"))
-          ;; => rotations are "&" "|"
+      (:rot ("yes" "no") :caps t :upcase t)
+      ;; => rotations are "yes" "no", "Yes" "No", "YES" "NO"
 
-          (:rot ("Luyang" "is" "a" "bad" "programmer" ":D") :caps t :upcase t)
-          ;; ?#!!!!!
+      (:rot ("1" "0"))
+      ;; => rotations for 1 and 0
 
-          ;; default dictionary starts here ('v')
-          (:rot ("begin" "end") :caps t :upcase t)
-          (:rot ("enable" "disable") :caps t :upcase t)
-          (:rot ("enter" "exit") :caps t :upcase t)
-          (:rot ("forward" "backward") :caps t :upcase t)
-          (:rot ("front" "rear" "back") :caps t :upcase t)
-          (:rot ("get" "set") :caps t :upcase t)
-          (:rot ("high" "low") :caps t :upcase t)
-          (:rot ("in" "out") :caps t :upcase t)
-          (:rot ("left" "right") :caps t :upcase t)
-          (:rot ("min" "max") :caps t :upcase t)
-          (:rot ("on" "off") :caps t :upcase t)
-          (:rot ("prev" "next"))
-          (:rot ("start" "stop") :caps t :upcase t)
-          (:rot ("true" "false") :caps t :upcase t)
-          (:rot ("&&" "||"))
-          (:rot ("==" "!="))
-          (:rot ("." "->"))
-          (:rot ("if" "else" "elif"))
-          (:rot ("ifdef" "ifndef"))
-          (:rot ("int8_t" "int16_t" "int32_t" "int64_t"))
-          (:rot ("uint8_t" "uint16_t" "uint32_t" "uint64_t"))
-          (:rot ("1" "2" "3" "4" "5" "6" "7" "8" "9" "10"))
-          (:rot ("1st" "2nd" "3rd" "4th" "5th" "6th" "7th" "8th" "9th" "10th"))
-          ))
+      (:rot ("&" "|"))
+      ;; => rotations are "&" "|"
+
+      (:rot ("Luyang" "is" "a" "bad" "programmer" ":D") :caps t :upcase t)
+      ;; ?#!!!!!
+
+      ;; default dictionary starts here ('v')
+      (:rot ("begin" "end") :caps t :upcase t)
+      (:rot ("enable" "disable") :caps t :upcase t)
+      (:rot ("enter" "exit") :caps t :upcase t)
+      (:rot ("forward" "backward") :caps t :upcase t)
+      (:rot ("front" "rear" "back") :caps t :upcase t)
+      (:rot ("get" "set") :caps t :upcase t)
+      (:rot ("high" "low") :caps t :upcase t)
+      (:rot ("in" "out") :caps t :upcase t)
+      (:rot ("left" "right") :caps t :upcase t)
+      (:rot ("min" "max") :caps t :upcase t)
+      (:rot ("on" "off") :caps t :upcase t)
+      (:rot ("prev" "next"))
+      (:rot ("start" "stop") :caps t :upcase t)
+      (:rot ("true" "false") :caps t :upcase t)
+      (:rot ("&&" "||"))
+      (:rot ("==" "!="))
+      (:rot ("." "->"))
+      (:rot ("if" "else" "elif"))
+      (:rot ("ifdef" "ifndef"))
+      (:rot ("int8_t" "int16_t" "int32_t" "int64_t"))
+      (:rot ("uint8_t" "uint16_t" "uint32_t" "uint64_t"))
+      (:rot ("1" "2" "3" "4" "5" "6" "7" "8" "9" "10"))
+      (:rot ("1st" "2nd" "3rd" "4th" "5th" "6th" "7th" "8th" "9th" "10th"))))
+
   (define-key evil-normal-state-map (kbd "[r") 'parrot-rotate-prev-word-at-point)
-  (define-key evil-normal-state-map (kbd "]r") 'parrot-rotate-next-word-at-point)
-  (require 'dap-python)
-  (setq dap-python-executable "python3")
-  (parrot-mode)
-  (blink-cursor-mode 1)
-  (smartparens-mode 0)
-  ;; (spacemacs/toggle-minibuffer-system-monitor)
-  ;; (spacemacs/toggle-mode-line-battery)
-  (display-time))
+  (define-key evil-normal-state-map (kbd "]r") 'parrot-rotate-next-word-at-point))
 
 
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
-  (custom-set-variables
-   ;; custom-set-variables was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(company-quickhelp-color-background "#4F4F4F")
-   '(company-quickhelp-color-foreground "#DCDCCC")
-   '(compilation-message-face 'default)
-   '(cua-global-mark-cursor-color "#2aa198")
-   '(cua-normal-cursor-color "#657b83")
-   '(cua-overwrite-cursor-color "#b58900")
-   '(cua-read-only-cursor-color "#859900")
-   '(custom-safe-themes
-     '("fee7287586b17efbfda432f05539b58e86e059e78006ce9237b8732fde991b4c" "8efa3d21b3fa1ac084798fae4e89848ec26ae5c724b9417caf4922f4b2e31c2a" "f5b6be56c9de9fd8bdd42e0c05fecb002dedb8f48a5f00e769370e4517dde0e8" "4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "0d75aa06198c4245ac2a8877bfc56503d5d8199cc85da2c65a6791b84afb9024" default))
-   '(dap-mode t nil (dap-mode))
-   '(evil-want-Y-yank-to-eol nil)
-   '(fci-rule-color "#383838")
-   '(helm-completion-style 'helm)
-   '(highlight-changes-colors '("#d33682" "#6c71c4"))
-   '(highlight-symbol-colors
-     '("#efe5da4aafb2" "#cfc5e1add08c" "#fe53c9e7b34f" "#dbb6d3c3dcf4" "#e183dee1b053" "#f944cc6dae48" "#d360dac5e06a"))
-   '(highlight-symbol-foreground-color "#586e75")
-   '(highlight-tail-colors
-     '(("#eee8d5" . 0)
-       ("#b3c34d" . 20)
-       ("#6ccec0" . 30)
-       ("#74adf5" . 50)
-       ("#e1af4b" . 60)
-       ("#fb7640" . 70)
-       ("#ff699e" . 85)
-       ("#eee8d5" . 100)))
-   '(hl-bg-colors
-     '("#e1af4b" "#fb7640" "#ff6849" "#ff699e" "#8d85e7" "#74adf5" "#6ccec0" "#b3c34d"))
-   '(hl-fg-colors
-     '("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3"))
-   '(hl-todo-keyword-faces
-     '(("TODO" . "#dc752f")
-       ("NEXT" . "#dc752f")
-       ("Luyang" . "#1e90ff")
-       ("THEM" . "#2d9574")
-       ("WIP" . "#3a81c3")
-       ("OKAY" . "#3a81c3")
-       ("BLOCKED" . "#f2241f")
-       ("DONT" . "#f2241f")
-       ("FAIL" . "#f2241f")
-       ("DONE" . "#42ae2c")
-       ("NOTE" . "#b1951d")
-       ("KLUDGE" . "#b1951d")
-       ("HACK" . "#b1951d")
-       ("TEMP" . "#b1951d")
-       ("FIXME" . "#dc752f")
-       ("XXX+" . "#dc752f")
-       ("\\?\\?\\?+" . "#dc752f")))
-   '(lsp-ui-doc-border "#586e75")
-   '(nrepl-message-colors
-     '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
-   '(org-agenda-files
-     '("~/Dropbox/org/daily/30092021.org" "/Users/rubber/Dropbox/org/daily/29092021.org"))
-   '(org-fontify-done-headline nil)
-   '(org-fontify-todo-headline nil)
-   '(org-todo-keyword-faces
-     '(("REVIEW" . "#1e90ff")
-       ("WIP" . "#600170")
-       ("DONE" . "#55dd05")
-       ("BLOCKED" . "#f2241f")
-       ("NEXT" . "#00bfff")))
-   '(org-todo-keywords '((sequence "TODO" "DONE" "NEXT" "WIP" "REVIEW" "BLOCKED")))
-   '(package-selected-packages
-     '(multi yaml-mode x86-lookup nasm-mode csv-mode parrot zonokai-emacs yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify vterm volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org tide terminal-here tagedit symon symbol-overlay s string-inflection string-edit sphinx-doc spaceline-all-the-icons smeargle slim-mode shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters quickrun pytest pyenv-mode pydoc py-isort pug-mode prettier-js popwin poetry plantuml-mode pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets password-generator paradox overseer orgit-forge org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-download org-contrib org-cliplink open-junk-file npm-mode nose nodejs-repl nameless mvn multi-term multi-line s mmm-mode minitest maven-test-mode markdown-toc macrostep lsp-ui lsp-python-ms lsp-pyright lsp-origami lsp-java lorem-ipsum livid-mode live-py-mode link-hint s json-reformat json-navigator json-mode js2-refactor js-doc inspector info+ indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt helm-xref s helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-ls-git helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode groovy-imports google-translate google-c-style golden-ratio gnuplot gitignore-templates git-timemachine git-modes git-messenger git-link git-gutter-fringe gh-md gendoxy geben fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-terminal-cursor-changer evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emr emojify emoji-cheat-sheet-plus emmet-mode elisp-slime-nav elisp-def editorconfig dumb-jump drupal-mode drag-stuff dotenv-mode s disaster dired-quick-sort diminish devdocs define-word cython-mode cpp-auto-include company-ycmd company-web company-rtags company-phpactor company-php company-emoji company-c-headers company-anaconda column-enforce-mode -sanityinc-tomorrow -sanityinc-solarized color-identifiers-mode clean-aindent-mode chruby centered-cursor-mode ccls bundler browse-at-remote blacken auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
-   '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
-   '(pos-tip-background-color "#eee8d5")
-   '(pos-tip-foreground-color "#586e75")
-   '(python-shell-exec-path '("/opt/homebrew/bin/python3"))
-   '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
-   '(term-default-bg-color "#fdf6e3")
-   '(term-default-fg-color "#657b83")
-   '(vc-annotate-background "#2B2B2B")
-   '(vc-annotate-background-mode nil)
-   '(vc-annotate-color-map
-     '((20 . "#BC8383")
-       (40 . "#CC9393")
-       (60 . "#DFAF8F")
-       (80 . "#D0BF8F")
-       (100 . "#E0CF9F")
-       (120 . "#F0DFAF")
-       (140 . "#5F7F5F")
-       (160 . "#7F9F7F")
-       (180 . "#8FB28F")
-       (200 . "#9FC59F")
-       (220 . "#AFD8AF")
-       (240 . "#BFEBBF")
-       (260 . "#93E0E3")
-       (280 . "#6CA0A3")
-       (300 . "#7CB8BB")
-       (320 . "#8CD0D3")
-       (340 . "#94BFF3")
-       (360 . "#DC8CC3")))
-   '(vc-annotate-very-old-color "#DC8CC3")
-   '(weechat-color-list
-     '(unspecified "#fdf6e3" "#eee8d5" "#a7020a" "#dc322f" "#5b7300" "#859900" "#866300" "#b58900" "#0061a8" "#268bd2" "#a00559" "#d33682" "#007d76" "#2aa198" "#657b83" "#839496"))
-   '(which-key-mode t)
-   '(xterm-color-names
-     ["#eee8d5" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#073642"])
-   '(xterm-color-names-bright
-     ["#fdf6e3" "#cb4b16" "#93a1a1" "#839496" "#657b83" "#6c71c4" "#586e75" "#002b36"]))
-  (custom-set-faces
-   ;; custom-set-faces was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
-  )
+;; ;; Do not write anything past this comment. This is where Emacs will
+;; ;; auto-generate custom variable definitions.
+;; (defun dotspacemacs/emacs-custom-settings ()
+;;   "Emacs custom settings.
+;; This is an auto-generated function, do not modify its content directly, use
+;; Emacs customize menu instead.
+;; This function is called at the very end of Spacemacs initialization."
+;;   (custom-set-variables
+;;    ;; custom-set-variables was added by Custom.
+;;    ;; If you edit it by hand, you could mess it up, so be careful.
+;;    ;; Your init file should contain only one such instance.
+;;    ;; If there is more than one, they won't work right.
+;;    '(company-quickhelp-color-background "#4F4F4F")
+;;    '(company-quickhelp-color-foreground "#DCDCCC")
+;;    '(compilation-message-face 'default)
+;;    '(cua-global-mark-cursor-color "#2aa198")
+;;    '(cua-normal-cursor-color "#657b83")
+;;    '(cua-overwrite-cursor-color "#b58900")
+;;    '(cua-read-only-cursor-color "#859900")
+;;    '(custom-safe-themes
+;;      '("fee7287586b17efbfda432f05539b58e86e059e78006ce9237b8732fde991b4c" "8efa3d21b3fa1ac084798fae4e89848ec26ae5c724b9417caf4922f4b2e31c2a" "f5b6be56c9de9fd8bdd42e0c05fecb002dedb8f48a5f00e769370e4517dde0e8" "4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "0d75aa06198c4245ac2a8877bfc56503d5d8199cc85da2c65a6791b84afb9024" default))
+;;    '(dap-mode t nil (dap-mode))
+;;    '(evil-want-Y-yank-to-eol nil)
+;;    '(fci-rule-color "#383838")
+;;    '(helm-completion-style 'helm)
+;;    '(highlight-changes-colors '("#d33682" "#6c71c4"))
+;;    '(highlight-symbol-colors
+;;      '("#efe5da4aafb2" "#cfc5e1add08c" "#fe53c9e7b34f" "#dbb6d3c3dcf4" "#e183dee1b053" "#f944cc6dae48" "#d360dac5e06a"))
+;;    '(highlight-symbol-foreground-color "#586e75")
+;;    '(highlight-tail-colors
+;;      '(("#eee8d5" . 0)
+;;        ("#b3c34d" . 20)
+;;        ("#6ccec0" . 30)
+;;        ("#74adf5" . 50)
+;;        ("#e1af4b" . 60)
+;;        ("#fb7640" . 70)
+;;        ("#ff699e" . 85)
+;;        ("#eee8d5" . 100)))
+;;    '(hl-bg-colors
+;;      '("#e1af4b" "#fb7640" "#ff6849" "#ff699e" "#8d85e7" "#74adf5" "#6ccec0" "#b3c34d"))
+;;    '(hl-fg-colors
+;;      '("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3"))
+;;    '(hl-todo-keyword-faces
+;;      '(("TODO" . "#dc752f")
+;;        ("NEXT" . "#dc752f")
+;;        ("Luyang" . "#1e90ff")
+;;        ("THEM" . "#2d9574")
+;;        ("WIP" . "#3a81c3")
+;;        ("OKAY" . "#3a81c3")
+;;        ("BLOCKED" . "#f2241f")
+;;        ("DONT" . "#f2241f")
+;;        ("FAIL" . "#f2241f")
+;;        ("DONE" . "#42ae2c")
+;;        ("NOTE" . "#b1951d")
+;;        ("KLUDGE" . "#b1951d")
+;;        ("HACK" . "#b1951d")
+;;        ("TEMP" . "#b1951d")
+;;        ("FIXME" . "#dc752f")
+;;        ("XXX+" . "#dc752f")
+;;        ("\\?\\?\\?+" . "#dc752f")))
+;;    '(lsp-ui-doc-border "#586e75")
+;;    '(nrepl-message-colors
+;;      '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
+;;    '(org-agenda-files
+;;      '("~/Dropbox/org/daily/30092021.org" "/Users/rubber/Dropbox/org/daily/29092021.org"))
+;;    '(org-fontify-done-headline nil)
+;;    '(org-fontify-todo-headline nil)
+;;    '(org-todo-keyword-faces
+;;      '(("REVIEW" . "#1e90ff")
+;;        ("WIP" . "#600170")
+;;        ("DONE" . "#55dd05")
+;;        ("BLOCKED" . "#f2241f")
+;;        ("NEXT" . "#00bfff")))
+;;    '(org-todo-keywords '((sequence "TODO" "DONE" "NEXT" "WIP" "REVIEW" "BLOCKED")))
+;;    '(package-selected-packages
+;;      '(multi yaml-mode x86-lookup nasm-mode csv-mode parrot zonokai-emacs yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify vterm volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org tide terminal-here tagedit symon symbol-overlay s string-inflection string-edit sphinx-doc spaceline-all-the-icons smeargle slim-mode shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters quickrun pytest pyenv-mode pydoc py-isort pug-mode prettier-js popwin poetry plantuml-mode pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets password-generator paradox overseer orgit-forge org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-download org-contrib org-cliplink open-junk-file npm-mode nose nodejs-repl nameless mvn multi-term multi-line s mmm-mode minitest maven-test-mode markdown-toc macrostep lsp-ui lsp-python-ms lsp-pyright lsp-origami lsp-java lorem-ipsum livid-mode live-py-mode link-hint s json-reformat json-navigator json-mode js2-refactor js-doc inspector info+ indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt helm-xref s helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-ls-git helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode groovy-imports google-translate google-c-style golden-ratio gnuplot gitignore-templates git-timemachine git-modes git-messenger git-link git-gutter-fringe gh-md gendoxy geben fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-terminal-cursor-changer evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emr emojify emoji-cheat-sheet-plus emmet-mode elisp-slime-nav elisp-def editorconfig dumb-jump drupal-mode drag-stuff dotenv-mode s disaster dired-quick-sort diminish devdocs define-word cython-mode cpp-auto-include company-ycmd company-web company-rtags company-phpactor company-php company-emoji company-c-headers company-anaconda column-enforce-mode -sanityinc-tomorrow -sanityinc-solarized color-identifiers-mode clean-aindent-mode chruby centered-cursor-mode ccls bundler browse-at-remote blacken auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
+;;    '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
+;;    '(pos-tip-background-color "#eee8d5")
+;;    '(pos-tip-foreground-color "#586e75")
+;;    '(python-shell-exec-path '("/opt/homebrew/bin/python3"))
+;;    '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
+;;    '(term-default-bg-color "#fdf6e3")
+;;    '(term-default-fg-color "#657b83")
+;;    '(vc-annotate-background "#2B2B2B")
+;;    '(vc-annotate-background-mode nil)
+;;    '(vc-annotate-color-map
+;;      '((20 . "#BC8383")
+;;        (40 . "#CC9393")
+;;        (60 . "#DFAF8F")
+;;        (80 . "#D0BF8F")
+;;        (100 . "#E0CF9F")
+;;        (120 . "#F0DFAF")
+;;        (140 . "#5F7F5F")
+;;        (160 . "#7F9F7F")
+;;        (180 . "#8FB28F")
+;;        (200 . "#9FC59F")
+;;        (220 . "#AFD8AF")
+;;        (240 . "#BFEBBF")
+;;        (260 . "#93E0E3")
+;;        (280 . "#6CA0A3")
+;;        (300 . "#7CB8BB")
+;;        (320 . "#8CD0D3")
+;;        (340 . "#94BFF3")
+;;        (360 . "#DC8CC3")))
+;;    '(vc-annotate-very-old-color "#DC8CC3")
+;;    '(weechat-color-list
+;;      '(unspecified "#fdf6e3" "#eee8d5" "#a7020a" "#dc322f" "#5b7300" "#859900" "#866300" "#b58900" "#0061a8" "#268bd2" "#a00559" "#d33682" "#007d76" "#2aa198" "#657b83" "#839496"))
+;;    '(which-key-mode t)
+;;    '(xterm-color-names
+;;      ["#eee8d5" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#073642"])
+;;    '(xterm-color-names-bright
+;;      ["#fdf6e3" "#cb4b16" "#93a1a1" "#839496" "#657b83" "#6c71c4" "#586e75" "#002b36"]))
+;;   (custom-set-faces
+;;    ;; custom-set-faces was added by Custom.
+;;    ;; If you edit it by hand, you could mess it up, so be careful.
+;;    ;; Your init file should contain only one such instance.
+;;    ;; If there is more than one, they won't work right.
+;;    '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
+;;   )
