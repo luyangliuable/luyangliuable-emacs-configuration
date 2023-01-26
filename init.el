@@ -926,18 +926,23 @@ before packages are loaded."
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;                                   Enable Mode                               ;
+  ;                                   Enable Modes                              ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  (parrot-mode)
-  (scroll-bar-mode)
-  (ignore-errors (beacon-mode))
-  (fringe-mode `right-only)
-  ;; (display-time)
-  ;; (provide 'fira-code-mode)
-  ;; (require 'dap-python)
-  ;; (setq dap-python-executable "python3")
-  ;; (blink-cursor-mode 1)
-  ;; (smartparens-mode 0)
+
+  (ignore-errors
+    (progn
+      (parrot-mode)
+      (scroll-bar-mode)
+      ( beacon-mode )
+      (fringe-mode "right-only")
+      ;; (display-time)
+      ;; (provide 'fira-code-mode)
+      ;; (require 'dap-python)
+      ;; (setq dap-python-executable "python3")
+      ;; (blink-cursor-mode 1)
+      ;; (smartparens-mode 0)
+    )
+  )
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -981,6 +986,7 @@ before packages are loaded."
       ;; ?#!!!!!
 
       ;; default dictionary starts here ('v')
+      (:rot ("right-only" "left-only" "default" "no-fringe" "minimal") :caps t :upcase t)
       (:rot ("begin" "end") :caps t :upcase t)
       (:rot ("enable" "disable") :caps t :upcase t)
       (:rot ("enter" "exit") :caps t :upcase t)
