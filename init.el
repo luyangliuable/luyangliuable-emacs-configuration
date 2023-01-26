@@ -61,6 +61,7 @@ This function should only modify configuration layer settings."
      git
      helm
      html
+     (hello-world :variables hello-world-enable-hello-world t)
      java
      javascript
      json
@@ -545,9 +546,10 @@ It should only modify the values of Spacemacs settings."
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Fira Code"
                                ;; "Source Code Pro"
-                               :size 13.0
-                               :weight semi-bold
-                               :width normal)
+                               :size 14.0
+                               :weight ultra-light ;; thin, normal, bold, semi-bold, ultra-light
+                               :width semi-condensed ;; normal, condensed, semi-condensed
+                               )
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
