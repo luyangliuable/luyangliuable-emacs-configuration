@@ -770,7 +770,7 @@ It should only modify the values of Spacemacs settings."
    ;; `spacemacs/title-prepare' all the time.
    ;; (default "%i@%s")
    ;; (previous "%I@%s@%f@%m")
-   dotspacemacs-frame-title-format %i@%s
+   dotspacemacs-frame-title-format "%i@%s"
 
    ;; Format specification for setting the icon title format
    ;; (default nil - same as frame-title-format)
@@ -920,12 +920,18 @@ before packages are loaded."
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;                                   Key-bindings                              ;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (global-set-key (kbd "C-c b") 'bye-world)
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;                                   Enable Mode                               ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (parrot-mode)
   (scroll-bar-mode)
   (ignore-errors (beacon-mode))
-  (fringe-mode "right-only")
+  (fringe-mode `right-only)
   ;; (display-time)
   ;; (provide 'fira-code-mode)
   ;; (require 'dap-python)
