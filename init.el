@@ -241,7 +241,7 @@ This function should only modify configuration layer settings."
                                     chocolate-theme
                                     clues-theme
                                     color-theme-sanityinc-solarized
-                                    color-theme-sanityinc-tomorrow
+                                    ;; color-theme-sanityinc-tomorrow
                                     csv-mode
                                     cyberpunk-theme
                                     dakrone-theme
@@ -515,15 +515,17 @@ It should only modify the values of Spacemacs settings."
 
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
-   dotspacemacs-themes '(zenburn
-                         doom-oceanic-next
-                         green-screen
-                         almost-mono-black
-                         solarized-light
-                         solarized-dark
-                         spacemacs-dark
-                         spacemacs-light
-                         tao-yang)
+   dotspacemacs-themes '(doom-zenburn ;; good on the eye (was zenburn)
+                         doom-oceanic-next ;; best looking theme
+                         sanityinc-tomorrow-blue ;; to aide my memory in learning how to code
+                         green-screen ;; hacker
+                         solarized-light ;; popular
+                         ;; solarized-dark ;; meh
+                         ;; almost-mono-black ;; black
+                         spacemacs-dark ;; default dark mode
+                         spacemacs-light ;; defautl light mode
+                         tao-yang ;; burn my eyes please
+                         )
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
