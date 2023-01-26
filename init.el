@@ -223,6 +223,7 @@ This function should only modify configuration layer settings."
                                     ;; uuidgen
                                     ;; volatile-highlights
                                     ;; winum
+                                    ;; writeroom-mode
                                     ;; yapfify
                                     ;; zen-and-art-theme
                                     ;; zenburn-theme
@@ -358,7 +359,6 @@ This function should only modify configuration layer settings."
                                     web-beautify
                                     web-mode
                                     white-sand-theme
-                                    ;; writeroom-mode
                                     ws-butler
                                     x86-lookup
                                     xkcd
@@ -374,7 +374,7 @@ This function should only modify configuration layer settings."
    ;; installs only the used packages but won't delete unused ones. `all'
    ;; installs *all* packages supported by Spacemacs and never uninstalls them.
    ;; (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
+   dotspacemacs-install-packages `used-but-keep-unused))
 
 (defun dotspacemacs/init ()
   "Initialization:
@@ -515,10 +515,10 @@ It should only modify the values of Spacemacs settings."
 
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
-   dotspacemacs-themes '(doom-oceanic-next
+   dotspacemacs-themes '(zenburn
+                         doom-oceanic-next
                          green-screen
                          almost-mono-black
-                         zenburn
                          solarized-light
                          solarized-dark
                          spacemacs-dark
