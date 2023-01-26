@@ -103,10 +103,6 @@ This function should only modify configuration layer settings."
                                       green-screen-theme
                                       almost-mono-themes
                                       parrot
-                                      ;; fira-code-mode
-                                      ;; (parrot
-                                      ;;  :config
-                                      ;;  (parrot-mode))
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -162,10 +158,10 @@ This function should only modify configuration layer settings."
                                     soft-morning-theme
                                     soft-charcoal-theme
                                     smyx-theme
-                                    smeargle
+                                    ;; smeargle
                                     slim-mode
                                     shell-pop
-                                    ;; seti-theme
+                                    seti-theme
                                     seeing-is-believing
                                     scss-mode
                                     sass-mode
@@ -186,7 +182,7 @@ This function should only modify configuration layer settings."
                                     ;; rainbow-identifiers
                                     ;; rainbow-delimiters
                                     railscasts-theme
-                                    quickrun
+                                    ;; quickrun
                                     pytest
                                     pyenv-mode
                                     pydoc
@@ -194,12 +190,12 @@ This function should only modify configuration layer settings."
                                     purple-haze-theme
                                     pug-mode
                                     professional-theme
-                                    prettier-js
-                                    popwin
+                                    ;; prettier-js
+                                    ;; popwin
                                     poetry
                                     plantuml-mode
                                     planet-theme
-                                    pippel
+                                    ;; pippel
                                     pipenv
                                     pip-requirements
                                     phpunit
@@ -223,7 +219,7 @@ This function should only modify configuration layer settings."
                                     nameless
                                     ;; mvn
                                     mustang-theme
-                                    multi-term
+                                    ;; multi-term
                                     monokai-theme
                                     monochrome-theme
                                     molokai-theme
@@ -254,18 +250,18 @@ This function should only modify configuration layer settings."
                                     ;; livid-mode
                                     ;; live-py-mode
                                     ;; link-hint
-                                    ;; light-soap-theme
-                                    ;; kaolin-themes
+                                    light-soap-theme
+                                    kaolin-themes
                                     ;; json-reformat
                                     ;; json-navigator
                                     ;; json-mode
                                     ;; js2-refactor
                                     ;; js-doc
-                                    ;; jbeans-theme
-                                    ;; jazz-theme
-                                    ;; ir-black-theme
+                                    jbeans-theme
+                                    jazz-theme
+                                    ir-black-theme
                                     ;; inspector
-                                    ;; inkpot-theme
+                                    inkpot-theme
                                     ;; info+
                                     ;; indent-guide
                                     ;; importmagic
@@ -273,15 +269,15 @@ This function should only modify configuration layer settings."
                                     ;; hybrid-mode
                                     ;; hungry-delete
                                     ;; hide-comnt
-                                    ;; heroku-theme
-                                    ;; hemisu-theme
-                                    ;; hc-zenburn-theme
-                                    ;; gruvbox-theme
-                                    ;; gruber-darker-theme
+                                    heroku-theme
+                                    hemisu-theme
+                                    hc-zenburn-theme
+                                    gruvbox-theme
+                                    gruber-darker-theme
                                     ;; groovy-mode
                                     ;; groovy-imports
-                                    ;; grandshell-theme
-                                    ;; gotham-theme
+                                    grandshell-theme
+                                    gotham-theme
                                     ;; google-translate
                                     ;; google-c-style
                                     ;; gnuplot
@@ -292,20 +288,20 @@ This function should only modify configuration layer settings."
                                     ;; gh-md
                                     ;; gendoxy
                                     ;; geben
-                                    ;; gandalf-theme
+                                    gandalf-theme
                                     ;; fuzzy
                                     ;; font-lock+
                                     ;; flx-ido
-                                    ;; flatui-theme
-                                    ;; flatland-theme
-                                    ;; farmhouse-theme
+                                    flatui-theme
+                                    flatland-theme
+                                    farmhouse-theme
                                     fancy-battery
-                                    ;; eziam-theme
+                                    eziam-theme
                                     ;; eyebrowse
                                     ;; expand-region
-                                    ;; exotica-theme
+                                    exotica-theme
                                     ;; eval-sexp-fu
-                                    ;; espresso-theme
+                                    espresso-theme
                                     ;; eshell-z
                                     ;; eshell-prompt-extras
                                     ;; esh-help
@@ -521,7 +517,6 @@ It should only modify the values of Spacemacs settings."
                          green-screen
                          almost-mono-black
                          zenburn
-                         almost-mono-gray-theme
                          solarized-light
                          solarized-dark
                          spacemacs-dark
@@ -975,13 +970,12 @@ before packages are loaded."
   (define-key evil-normal-state-map (kbd "]r") 'parrot-rotate-next-word-at-point)
   (require 'dap-python)
   (setq dap-python-executable "python3")
+  (parrot-mode)
   (blink-cursor-mode 1)
   (smartparens-mode 0)
-  (display-time)
-  (spacemacs/toggle-mode-line-battery)
-  (spacemacs/toggle-mode-line-version-control-off)
-  (parrot-mode))
-;; (spacemacs/toggle-minibuffer-system-monitor)
+  ;; (spacemacs/toggle-minibuffer-system-monitor)
+  ;; (spacemacs/toggle-mode-line-battery)
+  (display-time))
 
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -1059,7 +1053,7 @@ This function is called at the very end of Spacemacs initialization."
        ("NEXT" . "#00bfff")))
    '(org-todo-keywords '((sequence "TODO" "DONE" "NEXT" "WIP" "REVIEW" "BLOCKED")))
    '(package-selected-packages
-     '(spotify helm-spotify-plus multi xkcd yaml-mode x86-lookup nasm-mode csv-mode parrot zonokai-emacs zenburn-theme zen-and-art-theme yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum white-sand-theme which-key web-mode web-beautify vterm volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toxi-theme toc-org tide terminal-here tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit symon symbol-overlay sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection string-edit sphinx-doc spaceline-all-the-icons spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode shell-pop seti-theme seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe reverse-theme restart-emacs rebecca-theme rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters railscasts-theme quickrun pytest pyenv-mode pydoc py-isort purple-haze-theme pug-mode professional-theme prettier-js popwin poetry plantuml-mode planet-theme pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets phoenix-dark-pink-theme phoenix-dark-mono-theme password-generator paradox overseer orgit-forge organic-green-theme org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-download org-contrib org-cliplink open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme npm-mode nose nodejs-repl noctilux-theme naquadah-theme nameless mvn mustang-theme multi-term multi-line monokai-theme monochrome-theme molokai-theme moe-theme modus-themes mmm-mode minitest minimal-theme maven-test-mode material-theme markdown-toc majapahit-theme madhat2r-theme macrostep lush-theme lsp-ui lsp-python-ms lsp-pyright lsp-origami lsp-java lorem-ipsum livid-mode live-py-mode link-hint light-soap-theme kaolin-themes json-reformat json-navigator json-mode js2-refactor js-doc jbeans-theme jazz-theme ir-black-theme inspector inkpot-theme info+ indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-ls-git helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme groovy-mode groovy-imports grandshell-theme gotham-theme google-translate google-c-style golden-ratio gnuplot gitignore-templates git-timemachine git-modes git-messenger git-link git-gutter-fringe gh-md gendoxy geben gandalf-theme fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flx-ido flatui-theme flatland-theme farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-terminal-cursor-changer evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help emr emojify emoji-cheat-sheet-plus emmet-mode elisp-slime-nav elisp-def editorconfig dumb-jump drupal-mode drag-stuff dracula-theme dotenv-mode doom-themes django-theme disaster dired-quick-sort diminish devdocs define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cython-mode cyberpunk-theme cpp-auto-include company-ycmd company-web company-rtags company-phpactor company-php company-emoji company-c-headers company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-identifiers-mode clues-theme clean-aindent-mode chruby chocolate-theme cherry-blossom-theme centered-cursor-mode ccls busybee-theme bundler bubbleberry-theme browse-at-remote blacken birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme ace-link ace-jump-helm-line ac-ispell))
+     '(multi yaml-mode x86-lookup nasm-mode csv-mode parrot zonokai-emacs yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify vterm volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org tide terminal-here tagedit symon symbol-overlay s string-inflection string-edit sphinx-doc spaceline-all-the-icons smeargle slim-mode shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters quickrun pytest pyenv-mode pydoc py-isort pug-mode prettier-js popwin poetry plantuml-mode pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets password-generator paradox overseer orgit-forge org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-download org-contrib org-cliplink open-junk-file npm-mode nose nodejs-repl nameless mvn multi-term multi-line s mmm-mode minitest maven-test-mode markdown-toc macrostep lsp-ui lsp-python-ms lsp-pyright lsp-origami lsp-java lorem-ipsum livid-mode live-py-mode link-hint s json-reformat json-navigator json-mode js2-refactor js-doc inspector info+ indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt helm-xref s helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-ls-git helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode groovy-imports google-translate google-c-style golden-ratio gnuplot gitignore-templates git-timemachine git-modes git-messenger git-link git-gutter-fringe gh-md gendoxy geben fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-terminal-cursor-changer evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emr emojify emoji-cheat-sheet-plus emmet-mode elisp-slime-nav elisp-def editorconfig dumb-jump drupal-mode drag-stuff dotenv-mode s disaster dired-quick-sort diminish devdocs define-word cython-mode cpp-auto-include company-ycmd company-web company-rtags company-phpactor company-php company-emoji company-c-headers company-anaconda column-enforce-mode -sanityinc-tomorrow -sanityinc-solarized color-identifiers-mode clean-aindent-mode chruby centered-cursor-mode ccls bundler browse-at-remote blacken auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
    '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
    '(pos-tip-background-color "#eee8d5")
    '(pos-tip-foreground-color "#586e75")
