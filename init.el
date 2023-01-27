@@ -350,7 +350,7 @@ This function should only modify configuration layer settings."
                                     tango-2-theme
                                     tango-plus-theme
                                     tangotango-theme
-                                    terminal-here
+                                    ;; terminal-here
                                     toxi-theme
                                     twilight-anti-bright-theme
                                     twilight-bright-theme
