@@ -125,6 +125,7 @@ This function should only modify configuration layer settings."
                                     ;; chruby
                                     ;; clean-aindent-mode
                                     ;; color-identifiers-mode
+                                    ;; color-theme-sanityinc-tomorrow
                                     ;; column-enforce-mode
                                     ;; company-anaconda
                                     ;; company-c-headers
@@ -217,9 +218,11 @@ This function should only modify configuration layer settings."
                                     ;; rspec-mode
                                     ;; rubocop
                                     ;; rubocopfmt
+                                    ;; rvm
                                     ;; smeargle
                                     ;; string-inflection
                                     ;; tao-theme
+                                    ;; terminal-here
                                     ;; treemacs-projectile
                                     ;; uuidgen
                                     ;; volatile-highlights
@@ -242,7 +245,6 @@ This function should only modify configuration layer settings."
                                     chocolate-theme
                                     clues-theme
                                     color-theme-sanityinc-solarized
-                                    ;; color-theme-sanityinc-tomorrow
                                     csv-mode
                                     cyberpunk-theme
                                     dakrone-theme
@@ -277,23 +279,23 @@ This function should only modify configuration layer settings."
                                     madhat2r-theme
                                     majapahit-theme
                                     material-theme
-                                    maven-test-mode
+                                    ;; maven-test-mode
                                     minimal-theme
-                                    minitest
-                                    mmm-mode
+                                    ;; minitest
+                                    ;; mmm-mode
                                     modus-themes
                                     moe-theme
                                     molokai-theme
                                     monochrome-theme
                                     monokai-theme
-                                    multi
+                                    ;; multi
                                     mustang-theme
-                                    nameless
+                                    ;; nameless
                                     naquadah-theme
-                                    nasm-mode
+                                    ;; nasm-mode
                                     noctilux-theme
-                                    nodejs-repl
-                                    npm-mode
+                                    ;; nodejs-repl
+                                    ;; npm-mode
                                     obsidian-theme
                                     occidental-theme
                                     oldlace-theme
@@ -310,26 +312,25 @@ This function should only modify configuration layer settings."
                                     plantuml-mode
                                     poetry
                                     professional-theme
-                                    pug-mode
+                                    ;; pug-mode
                                     purple-haze-theme
-                                    py-isort
-                                    pydoc
-                                    pyenv-mode
-                                    pytest
+                                    ;; py-isort
+                                    ;; pydoc
+                                    ;; pyenv-mode
+                                    ;; pytest
                                     railscasts-theme
                                     rebecca-theme
                                     reverse-theme
                                     ruby-hash-syntax
-                                    ruby-refactor
-                                    ruby-test-mode
-                                    ruby-tools
-                                    rvm
-                                    sass-mode
-                                    scss-mode
-                                    seeing-is-believing
+                                    ;; ruby-refactor
+                                    ;; ruby-test-mode
+                                    ;; ruby-tools
+                                    ;; sass-mode
+                                    ;; scss-mode
+                                    ;; seeing-is-believing
                                     seti-theme
                                     shell-pop
-                                    slim-mode
+                                    ;; slim-mode
                                     smyx-theme
                                     soft-charcoal-theme
                                     soft-morning-theme
@@ -337,34 +338,33 @@ This function should only modify configuration layer settings."
                                     solarized-theme
                                     soothe-theme
                                     spacegray-theme
-                                    sphinx-doc
+                                    ;; sphinx-doc
                                     spotify
                                     string-edit ;; TODO this doesn't work so it is excluded
                                     subatomic-theme
                                     subatomic256-theme
                                     sublime-themes
                                     sunny-day-theme
-                                    symbol-overlay
-                                    symon
-                                    tagedit
+                                    ;; symbol-overlay
+                                    ;; symon
+                                    ;; tagedit
                                     tango-2-theme
                                     tango-plus-theme
                                     tangotango-theme
-                                    ;; terminal-here
                                     toxi-theme
                                     twilight-anti-bright-theme
                                     twilight-bright-theme
                                     twilight-theme
                                     ujelly-theme
                                     underwater-theme
-                                    web-beautify
-                                    web-mode
+                                    ;; web-beautify
+                                    ;; web-mode
                                     white-sand-theme
-                                    ws-butler
-                                    x86-lookup
+                                    ;; ws-butler
+                                    ;; x86-lookup
                                     xkcd
                                     xterm-color
-                                    yaml-mode
+                                    ;; yaml-mode
                                     zonokai-emacs
                                     )
 
