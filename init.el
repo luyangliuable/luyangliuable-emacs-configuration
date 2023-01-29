@@ -322,12 +322,12 @@ This function should only modify configuration layer settings."
                                     rebecca-theme
                                     reverse-theme
                                     ruby-hash-syntax
-                                    ;; ruby-refactor
-                                    ;; ruby-test-mode
-                                    ;; ruby-tools
-                                    ;; sass-mode
-                                    ;; scss-mode
-                                    ;; seeing-is-believing
+                                    ruby-refactor
+                                    ruby-test-mode
+                                    ruby-tools
+                                    sass-mode
+                                    scss-mode
+                                    seeing-is-believing ;; Ruby gem to evaluate Ruby code
                                     seti-theme
                                     shell-pop
                                     ;; slim-mode
@@ -340,14 +340,14 @@ This function should only modify configuration layer settings."
                                     spacegray-theme
                                     ;; sphinx-doc
                                     spotify
-                                    string-edit ;; TODO this doesn't work so it is excluded
+                                    ;; string-edit ;; TODO this doesn't work so it is excluded
                                     subatomic-theme
                                     subatomic256-theme
                                     sublime-themes
                                     sunny-day-theme
-                                    ;; symbol-overlay
-                                    ;; symon
-                                    ;; tagedit
+                                    symbol-overlay
+                                    symon
+                                    tagedit
                                     tango-2-theme
                                     tango-plus-theme
                                     tangotango-theme
@@ -357,14 +357,14 @@ This function should only modify configuration layer settings."
                                     twilight-theme
                                     ujelly-theme
                                     underwater-theme
-                                    ;; web-beautify
-                                    ;; web-mode
+                                    web-beautify
+                                    web-mode
                                     white-sand-theme
-                                    ;; ws-butler
+                                    ws-butler
                                     ;; x86-lookup
                                     xkcd
                                     xterm-color
-                                    ;; yaml-mode
+                                    yaml-mode
                                     zonokai-emacs
                                     )
 
