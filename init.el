@@ -199,15 +199,22 @@ This function should only modify configuration layer settings."
                                     ;; lorem-ipsum
                                     ;; macrostep
                                     ;; markdown-toc
+                                    ;; mmm-mode
                                     ;; multi-term
                                     ;; mvn
+                                    ;; nodejs-repl
                                     ;; nose
+                                    ;; npm-mode
                                     ;; open-junk-file
                                     ;; overseer
                                     ;; paradox
                                     ;; pippel
                                     ;; popwin
                                     ;; prettier-js
+                                    ;; py-isort
+                                    ;; pydoc
+                                    ;; pyenv-mode
+                                    ;; pytest
                                     ;; quickrun
                                     ;; rainbow-delimiters
                                     ;; rainbow-identifiers
@@ -219,15 +226,22 @@ This function should only modify configuration layer settings."
                                     ;; rubocop
                                     ;; rubocopfmt
                                     ;; rvm
+                                    ;; seeing-is-believing ;; Ruby gem to evaluate Ruby code
+                                    ;; slim-mode ;; no idea what this is
                                     ;; smeargle
+                                    ;; sphinx-doc
+                                    ;; string-edit ;; TODO this doesn't work so it is excluded
                                     ;; string-inflection
                                     ;; tao-theme
                                     ;; terminal-here
                                     ;; treemacs-projectile
                                     ;; uuidgen
                                     ;; volatile-highlights
+                                    ;; web-beautify
+                                    ;; web-mode
                                     ;; winum
                                     ;; writeroom-mode
+                                    ;; x86-lookup
                                     ;; yapfify
                                     ;; zen-and-art-theme
                                     ;; zenburn-theme
@@ -279,23 +293,20 @@ This function should only modify configuration layer settings."
                                     madhat2r-theme
                                     majapahit-theme
                                     material-theme
-                                    ;; maven-test-mode
+                                    maven-test-mode
                                     minimal-theme
-                                    ;; minitest
-                                    ;; mmm-mode
+                                    minitest ;; ruby minitest
                                     modus-themes
                                     moe-theme
                                     molokai-theme
                                     monochrome-theme
                                     monokai-theme
-                                    ;; multi
+                                    multi
                                     mustang-theme
-                                    ;; nameless
+                                    nameless ;; Hide package namespaces in your emacs-lisp code.
                                     naquadah-theme
-                                    ;; nasm-mode
+                                    nasm-mode ;; assembly language
                                     noctilux-theme
-                                    ;; nodejs-repl
-                                    ;; npm-mode
                                     obsidian-theme
                                     occidental-theme
                                     oldlace-theme
@@ -312,12 +323,8 @@ This function should only modify configuration layer settings."
                                     plantuml-mode
                                     poetry
                                     professional-theme
-                                    ;; pug-mode
+                                    pug-mode ;; no idea what this is
                                     purple-haze-theme
-                                    ;; py-isort
-                                    ;; pydoc
-                                    ;; pyenv-mode
-                                    ;; pytest
                                     railscasts-theme
                                     rebecca-theme
                                     reverse-theme
@@ -327,10 +334,8 @@ This function should only modify configuration layer settings."
                                     ruby-tools
                                     sass-mode
                                     scss-mode
-                                    seeing-is-believing ;; Ruby gem to evaluate Ruby code
                                     seti-theme
                                     shell-pop
-                                    ;; slim-mode
                                     smyx-theme
                                     soft-charcoal-theme
                                     soft-morning-theme
@@ -338,9 +343,7 @@ This function should only modify configuration layer settings."
                                     solarized-theme
                                     soothe-theme
                                     spacegray-theme
-                                    ;; sphinx-doc
                                     spotify
-                                    ;; string-edit ;; TODO this doesn't work so it is excluded
                                     subatomic-theme
                                     subatomic256-theme
                                     sublime-themes
@@ -357,11 +360,8 @@ This function should only modify configuration layer settings."
                                     twilight-theme
                                     ujelly-theme
                                     underwater-theme
-                                    web-beautify
-                                    web-mode
                                     white-sand-theme
                                     ws-butler
-                                    ;; x86-lookup
                                     xkcd
                                     xterm-color
                                     yaml-mode
