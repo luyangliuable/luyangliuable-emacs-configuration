@@ -38,30 +38,30 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; yaml
+     ;; better-defaults
      ;; csv
      ;; docker
-     ;; kotlin
      ;; ipython-notebook
-     ;; better-defaults
+     ;; kotlin
      ;; plantuml
+     ;; yaml
      ;; (spotify :variables
      ;;          counsel-spotify-client-id "b1df40967cc24f128afca0b5828d42d8"
      ;;          counsel-spotify-client-secret "2cb6f66e5a0c4544b71622745ea637f6")
-     ;; xkcd
+     ;; asm
      ;; php
      ;; ruby
-     ;; asm
-     emacs-lisp
+     ;; xkcd
      auto-completion
+     bye-world
      c-c++
      csharp
      csv
+     emacs-lisp
      emoji
      git
      helm
      html
-     bye-world
      java
      javascript
      json
@@ -71,6 +71,7 @@ This function should only modify configuration layer settings."
      python
      react
      rust
+     slime
      spell-checking
      sql
      syntax-checking
@@ -100,9 +101,8 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(parrot
                                       slime
-                                      beacon
+                                      beacon)
                                       ;; (beacon :location "~/beacon")
-                                      )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -230,7 +230,6 @@ This function should only modify configuration layer settings."
                                     ;; slim-mode ;; no idea what this is
                                     ;; smeargle
                                     ;; sphinx-doc
-                                    ;; string-edit ;; TODO this doesn't work so it is excluded
                                     ;; string-inflection
                                     ;; tao-theme
                                     ;; terminal-here
@@ -344,6 +343,7 @@ This function should only modify configuration layer settings."
                                     soothe-theme
                                     spacegray-theme
                                     spotify
+                                    string-edit ;; TODO this doesn't work so it is excluded
                                     subatomic-theme
                                     subatomic256-theme
                                     sublime-themes
@@ -365,8 +365,7 @@ This function should only modify configuration layer settings."
                                     xkcd
                                     xterm-color
                                     yaml-mode
-                                    zonokai-emacs
-                                    )
+                                    zonokai-emacs)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
