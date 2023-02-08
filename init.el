@@ -97,12 +97,12 @@ This function should only modify configuration layer settings."
    ;; this file). If you need some configuration for these packages, then
    ;; consider creating a layer. You can also put the configuration in
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
-;; `:location' property: '(your-package :location "~/path/to/your-package/")
+   ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(parrot
                                       slime
                                       beacon)
-                                      ;; (beacon :location "~/beacon")
+   ;; (beacon :location "~/beacon")
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -769,7 +769,7 @@ It should only modify the values of Spacemacs settings."
    ;; `spacemacs/title-prepare' all the time.
    ;; (default "%i@%s")
    ;; (previous "%I@%s@%f@%m")
-   dotspacemacs-frame-title-format "%i@%s"
+   dotspacemacs-frame-title-format "%I@%S%t"
 
    ;; Format specification for setting the icon title format
    ;; (default nil - same as frame-title-format)
@@ -852,7 +852,7 @@ before packages are loaded."
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;                                   Fira (not working)                        ;
+                                        ;                                   Fira (not working)                        ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (defun fira-code-mode--make-alist (list)
     "Generate prettify-symbols alist from LIST."
@@ -871,45 +871,94 @@ before packages are loaded."
            (cons s (append prefix suffix (list (decode-char 'ucs code))))))
        list)))
 
-  (defconst fira-code-mode--ligatures
-    '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
-      "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
-      "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
-      "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
-      ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
-      "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
-      "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
-      "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
-      ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
-      "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
-      "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
-      "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
-      "x" ":" "+" "+" "*"))
+  (when (window-system)
+    (set-frame-font "Fira Code"))
+  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+                 (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+                 (36 . ".\\(?:>\\)")
+                 (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+                 (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+                 (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+                 (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+                 (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+                 (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+                 (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+                 (48 . ".\\(?:x[a-zA-Z]\\)")
+                 (58 . ".\\(?:::\\|[:=]\\)")
+                 (59 . ".\\(?:;;\\|;\\)")
+                 (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+                 (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+                 (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+                 (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+                 (91 . ".\\(?:]\\)")
+                 (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+                 (94 . ".\\(?:=\\)")
+                 (119 . ".\\(?:ww\\)")
+                 (123 . ".\\(?:-\\)")
+                 (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+                 (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+                 )
+               ))
+    (dolist (char-regexp alist)
+      (set-char-table-range composition-function-table (car char-regexp)
+                            `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
-  (defvar fira-code-mode--old-prettify-alist)
+  ;; (defun fira-code-mode--make-alist (list)
+  ;;   "Generate prettify-symbols alist from LIST."
+  ;;   (let ((idx -1))
+  ;;     (mapcar
+  ;;      (lambda (s)
+  ;;        (setq idx (1+ idx))
+  ;;        (let* ((code (+ #Xe100 idx))
+  ;;               (width (string-width s))
+  ;;               (prefix ())
+  ;;               (suffix '(?\s (Br . Br)))
+  ;;               (n 1))
+  ;;          (while (< n width)
+  ;;            (setq prefix (append prefix '(?\s (Br . Bl))))
+  ;;            (setq n (1+ n)))
+  ;;          (cons s (append prefix suffix (list (decode-char 'ucs code))))))
+  ;;      list)))
 
-  (defun fira-code-mode--enable ()
-    "Enable Fira Code ligatures in current buffer."
-    (setq-local fira-code-mode--old-prettify-alist prettify-symbols-alist)
-    (setq-local prettify-symbols-alist (append (fira-code-mode--make-alist fira-code-mode--ligatures) fira-code-mode--old-prettify-alist))
-    (prettify-symbols-mode t))
+  ;; (defconst fira-code-mode--ligatures
+  ;;   '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
+  ;;     "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
+  ;;     "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
+  ;;     "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
+  ;;     ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
+  ;;     "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
+  ;;     "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
+  ;;     "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
+  ;;     ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
+  ;;     "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
+  ;;     "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
+  ;;     "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
+  ;;     "x" ":" "+" "+" "*"))
 
-  (defun fira-code-mode--disable ()
-    "Disable Fira Code ligatures in current buffer."
-    (setq-local prettify-symbols-alist fira-code-mode--old-prettify-alist)
-    (prettify-symbols-mode -1))
+  ;; (defvar fira-code-mode--old-prettify-alist)
 
-  (define-minor-mode fira-code-mode
-    "Fira Code ligatures minor mode"
-    :lighter " Fira Code"
-    (setq-local prettify-symbols-unprettify-at-point 'right-edge)
-    (if fira-code-mode
-        (fira-code-mode--enable)
-      (fira-code-mode--disable)))
+  ;; (defun fira-code-mode--enable ()
+  ;;   "Enable Fira Code ligatures in current buffer."
+  ;;   (setq-local fira-code-mode--old-prettify-alist prettify-symbols-alist)
+  ;;   (setq-local prettify-symbols-alist (append (fira-code-mode--make-alist fira-code-mode--ligatures) fira-code-mode--old-prettify-alist))
+  ;;   (prettify-symbols-mode t))
 
-  (defun fira-code-mode--setup ()
-    "Setup Fira Code Symbols"
-    (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol"))
+  ;; (defun fira-code-mode--disable ()
+  ;;   "Disable Fira Code ligatures in current buffer."
+  ;;   (setq-local prettify-symbols-alist fira-code-mode--old-prettify-alist)
+  ;;   (prettify-symbols-mode -1))
+
+  ;; (define-minor-mode fira-code-mode
+  ;;   "Fira Code ligatures minor mode"
+  ;;   :lighter " Fira Code"
+  ;;   (setq-local prettify-symbols-unprettify-at-point 'right-edge)
+  ;;   (if fira-code-mode
+  ;;       (fira-code-mode--enable)
+  ;;     (fira-code-mode--disable)))
+
+  ;; (defun fira-code-mode--setup ()
+  ;;   "Setup Fira Code Symbols"
+  ;;   (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol"))
 
   ;; enable run lisp in gnu emacs
   (setq inferior-lisp-program "sbcl")
@@ -919,13 +968,12 @@ before packages are loaded."
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;                                   Key-bindings                              ;
+                                        ;                                   Key-bindings                              ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (global-set-key (kbd "C-c b") 'bye-world)
 
-
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;                                   Enable Modes                              ;
+                                        ;                                   Enable Modes                              ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   (ignore-errors
@@ -940,12 +988,12 @@ before packages are loaded."
       ;; (setq dap-python-executable "python3")
       ;; (blink-cursor-mode 1)
       ;; (smartparens-mode 0)
+      )
     )
-  )
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;                                  Disable Mode                               ;
+                                        ;                                  Disable Mode                               ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; (spacemacs/toggle-mode-line-battery)
   ;; (spacemacs/toggle-minibuffer-system-monitor)
@@ -953,7 +1001,7 @@ before packages are loaded."
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;                                   Spotify                                   ;
+                                        ;                                   Spotify                                   ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; (setq counsel-spotify-client-id "$token")
   ;; (setq counsel-spotify-client-secret "$tokensec")
@@ -963,173 +1011,53 @@ before packages are loaded."
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;                                    Parrot                                   ;
+                                        ;                                    Parrot                                   ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (setq parrot-rotate-dict '(
-      (:rot ("alpha" "beta") :caps t :lower nil)
-      ;; => rotations are "Alpha" "Beta"
+                             (:rot ("alpha" "beta") :caps t :lower nil)
+                             ;; => rotations are "Alpha" "Beta"
 
-      (:rot ("snek" "snake" "stawp"))
-      ;; => rotatons are "snek" "snake" "stawp"
+                             (:rot ("snek" "snake" "stawp"))
+                             ;; => rotatons are "snek" "snake" "stawp"
 
-      (:rot ("yes" "no") :caps t :upcase t)
-      ;; => rotations are "yes" "no", "Yes" "No", "YES" "NO"
+                             (:rot ("yes" "no") :caps t :upcase t)
+                             ;; => rotations are "yes" "no", "Yes" "No", "YES" "NO"
 
-      (:rot ("1" "0"))
-      ;; => rotations for 1 and 0
+                             (:rot ("1" "0"))
+                             ;; => rotations for 1 and 0
 
-      (:rot ("&" "|"))
-      ;; => rotations are "&" "|"
+                             (:rot ("&" "|"))
+                             ;; => rotations are "&" "|"
 
-      (:rot ("Luyang" "is" "a" "bad" "programmer" ":D") :caps t :upcase t)
-      ;; ?#!!!!!
+                             (:rot ("Luyang" "is" "a" "bad" "programmer" ":D") :caps t :upcase t)
+                             ;; ?#!!!!!
 
-      ;; default dictionary starts here ('v')
-      (:rot ("right-only" "left-only" "default" "no-fringe" "minimal") :caps t :upcase t)
-      (:rot ("begin" "end") :caps t :upcase t)
-      (:rot ("enable" "disable") :caps t :upcase t)
-      (:rot ("enter" "exit") :caps t :upcase t)
-      (:rot ("forward" "backward") :caps t :upcase t)
-      (:rot ("front" "rear" "back") :caps t :upcase t)
-      (:rot ("get" "set") :caps t :upcase t)
-      (:rot ("high" "low") :caps t :upcase t)
-      (:rot ("in" "out") :caps t :upcase t)
-      (:rot ("left" "right") :caps t :upcase t)
-      (:rot ("min" "max") :caps t :upcase t)
-      (:rot ("on" "off") :caps t :upcase t)
-      (:rot ("prev" "next"))
-      (:rot ("start" "stop") :caps t :upcase t)
-      (:rot ("true" "false") :caps t :upcase t)
-      (:rot ("&&" "||"))
-      (:rot ("==" "!="))
-      (:rot ("." "->"))
-      (:rot ("if" "else" "elif"))
-      (:rot ("ifdef" "ifndef"))
-      (:rot ("int8_t" "int16_t" "int32_t" "int64_t"))
-      (:rot ("uint8_t" "uint16_t" "uint32_t" "uint64_t"))
-      (:rot ("1" "2" "3" "4" "5" "6" "7" "8" "9" "10"))
-      (:rot ("1st" "2nd" "3rd" "4th" "5th" "6th" "7th" "8th" "9th" "10th"))))
+                             ;; default dictionary starts here ('v')
+                             (:rot ("right-only" "left-only" "default" "no-fringe" "minimal") :caps t :upcase t)
+                             (:rot ("begin" "end") :caps t :upcase t)
+                             (:rot ("enable" "disable") :caps t :upcase t)
+                             (:rot ("enter" "exit") :caps t :upcase t)
+                             (:rot ("forward" "backward") :caps t :upcase t)
+                             (:rot ("front" "rear" "back") :caps t :upcase t)
+                             (:rot ("get" "set") :caps t :upcase t)
+                             (:rot ("high" "low") :caps t :upcase t)
+                             (:rot ("in" "out") :caps t :upcase t)
+                             (:rot ("left" "right") :caps t :upcase t)
+                             (:rot ("min" "max") :caps t :upcase t)
+                             (:rot ("on" "off") :caps t :upcase t)
+                             (:rot ("prev" "next"))
+                             (:rot ("start" "stop") :caps t :upcase t)
+                             (:rot ("true" "false") :caps t :upcase t)
+                             (:rot ("&&" "||"))
+                             (:rot ("==" "!="))
+                             (:rot ("." "->"))
+                             (:rot ("if" "else" "elif"))
+                             (:rot ("ifdef" "ifndef"))
+                             (:rot ("int8_t" "int16_t" "int32_t" "int64_t"))
+                             (:rot ("uint8_t" "uint16_t" "uint32_t" "uint64_t"))
+                             (:rot ("1" "2" "3" "4" "5" "6" "7" "8" "9" "10"))
+                             (:rot ("1st" "2nd" "3rd" "4th" "5th" "6th" "7th" "8th" "9th" "10th"))))
 
   (define-key evil-normal-state-map (kbd "[r") 'parrot-rotate-prev-word-at-point)
   (define-key evil-normal-state-map (kbd "]r") 'parrot-rotate-next-word-at-point))
 
-
-;; ;; Do not write anything past this comment. This is where Emacs will
-;; ;; auto-generate custom variable definitions.
-;; (defun dotspacemacs/emacs-custom-settings ()
-;;   "Emacs custom settings.
-;; This is an auto-generated function, do not modify its content directly, use
-;; Emacs customize menu instead.
-;; This function is called at the very end of Spacemacs initialization."
-;;   (custom-set-variables
-;;    ;; custom-set-variables was added by Custom.
-;;    ;; If you edit it by hand, you could mess it up, so be careful.
-;;    ;; Your init file should contain only one such instance.
-;;    ;; If there is more than one, they won't work right.
-;;    '(company-quickhelp-color-background "#4F4F4F")
-;;    '(company-quickhelp-color-foreground "#DCDCCC")
-;;    '(compilation-message-face 'default)
-;;    '(cua-global-mark-cursor-color "#2aa198")
-;;    '(cua-normal-cursor-color "#657b83")
-;;    '(cua-overwrite-cursor-color "#b58900")
-;;    '(cua-read-only-cursor-color "#859900")
-;;    '(custom-safe-themes
-;;      '("fee7287586b17efbfda432f05539b58e86e059e78006ce9237b8732fde991b4c" "8efa3d21b3fa1ac084798fae4e89848ec26ae5c724b9417caf4922f4b2e31c2a" "f5b6be56c9de9fd8bdd42e0c05fecb002dedb8f48a5f00e769370e4517dde0e8" "4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "0d75aa06198c4245ac2a8877bfc56503d5d8199cc85da2c65a6791b84afb9024" default))
-;;    '(dap-mode t nil (dap-mode))
-;;    '(evil-want-Y-yank-to-eol nil)
-;;    '(fci-rule-color "#383838")
-;;    '(helm-completion-style 'helm)
-;;    '(highlight-changes-colors '("#d33682" "#6c71c4"))
-;;    '(highlight-symbol-colors
-;;      '("#efe5da4aafb2" "#cfc5e1add08c" "#fe53c9e7b34f" "#dbb6d3c3dcf4" "#e183dee1b053" "#f944cc6dae48" "#d360dac5e06a"))
-;;    '(highlight-symbol-foreground-color "#586e75")
-;;    '(highlight-tail-colors
-;;      '(("#eee8d5" . 0)
-;;        ("#b3c34d" . 20)
-;;        ("#6ccec0" . 30)
-;;        ("#74adf5" . 50)
-;;        ("#e1af4b" . 60)
-;;        ("#fb7640" . 70)
-;;        ("#ff699e" . 85)
-;;        ("#eee8d5" . 100)))
-;;    '(hl-bg-colors
-;;      '("#e1af4b" "#fb7640" "#ff6849" "#ff699e" "#8d85e7" "#74adf5" "#6ccec0" "#b3c34d"))
-;;    '(hl-fg-colors
-;;      '("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3"))
-;;    '(hl-todo-keyword-faces
-;;      '(("TODO" . "#dc752f")
-;;        ("NEXT" . "#dc752f")
-;;        ("Luyang" . "#1e90ff")
-;;        ("THEM" . "#2d9574")
-;;        ("WIP" . "#3a81c3")
-;;        ("OKAY" . "#3a81c3")
-;;        ("BLOCKED" . "#f2241f")
-;;        ("DONT" . "#f2241f")
-;;        ("FAIL" . "#f2241f")
-;;        ("DONE" . "#42ae2c")
-;;        ("NOTE" . "#b1951d")
-;;        ("KLUDGE" . "#b1951d")
-;;        ("HACK" . "#b1951d")
-;;        ("TEMP" . "#b1951d")
-;;        ("FIXME" . "#dc752f")
-;;        ("XXX+" . "#dc752f")
-;;        ("\\?\\?\\?+" . "#dc752f")))
-;;    '(lsp-ui-doc-border "#586e75")
-;;    '(nrepl-message-colors
-;;      '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
-;;    '(org-agenda-files
-;;      '("~/Dropbox/org/daily/30092021.org" "/Users/rubber/Dropbox/org/daily/29092021.org"))
-;;    '(org-fontify-done-headline nil)
-;;    '(org-fontify-todo-headline nil)
-;;    '(org-todo-keyword-faces
-;;      '(("REVIEW" . "#1e90ff")
-;;        ("WIP" . "#600170")
-;;        ("DONE" . "#55dd05")
-;;        ("BLOCKED" . "#f2241f")
-;;        ("NEXT" . "#00bfff")))
-;;    '(org-todo-keywords '((sequence "TODO" "DONE" "NEXT" "WIP" "REVIEW" "BLOCKED")))
-;;    '(package-selected-packages
-;;      '(multi yaml-mode x86-lookup nasm-mode csv-mode parrot zonokai-emacs yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify vterm volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org tide terminal-here tagedit symon symbol-overlay s string-inflection string-edit sphinx-doc spaceline-all-the-icons smeargle slim-mode shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters quickrun pytest pyenv-mode pydoc py-isort pug-mode prettier-js popwin poetry plantuml-mode pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets password-generator paradox overseer orgit-forge org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-download org-contrib org-cliplink open-junk-file npm-mode nose nodejs-repl nameless mvn multi-term multi-line s mmm-mode minitest maven-test-mode markdown-toc macrostep lsp-ui lsp-python-ms lsp-pyright lsp-origami lsp-java lorem-ipsum livid-mode live-py-mode link-hint s json-reformat json-navigator json-mode js2-refactor js-doc inspector info+ indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt helm-xref s helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-ls-git helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode groovy-imports google-translate google-c-style golden-ratio gnuplot gitignore-templates git-timemachine git-modes git-messenger git-link git-gutter-fringe gh-md gendoxy geben fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-terminal-cursor-changer evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emr emojify emoji-cheat-sheet-plus emmet-mode elisp-slime-nav elisp-def editorconfig dumb-jump drupal-mode drag-stuff dotenv-mode s disaster dired-quick-sort diminish devdocs define-word cython-mode cpp-auto-include company-ycmd company-web company-rtags company-phpactor company-php company-emoji company-c-headers company-anaconda column-enforce-mode -sanityinc-tomorrow -sanityinc-solarized color-identifiers-mode clean-aindent-mode chruby centered-cursor-mode ccls bundler browse-at-remote blacken auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
-;;    '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
-;;    '(pos-tip-background-color "#eee8d5")
-;;    '(pos-tip-foreground-color "#586e75")
-;;    '(python-shell-exec-path '("/opt/homebrew/bin/python3"))
-;;    '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
-;;    '(term-default-bg-color "#fdf6e3")
-;;    '(term-default-fg-color "#657b83")
-;;    '(vc-annotate-background "#2B2B2B")
-;;    '(vc-annotate-background-mode nil)
-;;    '(vc-annotate-color-map
-;;      '((20 . "#BC8383")
-;;        (40 . "#CC9393")
-;;        (60 . "#DFAF8F")
-;;        (80 . "#D0BF8F")
-;;        (100 . "#E0CF9F")
-;;        (120 . "#F0DFAF")
-;;        (140 . "#5F7F5F")
-;;        (160 . "#7F9F7F")
-;;        (180 . "#8FB28F")
-;;        (200 . "#9FC59F")
-;;        (220 . "#AFD8AF")
-;;        (240 . "#BFEBBF")
-;;        (260 . "#93E0E3")
-;;        (280 . "#6CA0A3")
-;;        (300 . "#7CB8BB")
-;;        (320 . "#8CD0D3")
-;;        (340 . "#94BFF3")
-;;        (360 . "#DC8CC3")))
-;;    '(vc-annotate-very-old-color "#DC8CC3")
-;;    '(weechat-color-list
-;;      '(unspecified "#fdf6e3" "#eee8d5" "#a7020a" "#dc322f" "#5b7300" "#859900" "#866300" "#b58900" "#0061a8" "#268bd2" "#a00559" "#d33682" "#007d76" "#2aa198" "#657b83" "#839496"))
-;;    '(which-key-mode t)
-;;    '(xterm-color-names
-;;      ["#eee8d5" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#073642"])
-;;    '(xterm-color-names-bright
-;;      ["#fdf6e3" "#cb4b16" "#93a1a1" "#839496" "#657b83" "#6c71c4" "#586e75" "#002b36"]))
-;;   (custom-set-faces
-;;    ;; custom-set-faces was added by Custom.
-;;    ;; If you edit it by hand, you could mess it up, so be careful.
-;;    ;; Your init file should contain only one such instance.
-;;    ;; If there is more than one, they won't work right.
-;;    '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
-;;   )
