@@ -71,7 +71,6 @@ This function should only modify configuration layer settings."
      python
      react
      rust
-     slime
      spell-checking
      sql
      syntax-checking
@@ -897,7 +896,9 @@ before packages are loaded."
                (94 . ".\\(?:=\\)")
                (119 . ".\\(?:ww\\)")
                (123 . ".\\(?:-\\)")
+               ;; (123 . ".\\(?:\\(?:{|\\)\\|[{|]\\)") ;; Do this for {|
                (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+               ;; (125 . ".\\(?:\\(?:}|\\)\\|[}|]\\)") ;; Do this for |}
                (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
                )
              ))
@@ -1075,122 +1076,11 @@ before packages are loaded."
   (define-key evil-normal-state-map (kbd "]r") 'parrot-rotate-next-word-at-point))
 
 
-;; ;; Do not write anything past this comment. This is where Emacs will
-;; ;; auto-generate custom variable definitions.
-;; (defun dotspacemacs/emacs-custom-settings ()
-;;   "Emacs custom settings.
-;; This is an auto-generated function, do not modify its content directly, use
-;; Emacs customize menu instead.
-;; This function is called at the very end of Spacemacs initialization."
-;;   (custom-set-variables
-;;    ;; custom-set-variables was added by Custom.
-;;    ;; If you edit it by hand, you could mess it up, so be careful.
-;;    ;; Your init file should contain only one such instance.
-;;    ;; If there is more than one, they won't work right.
-;;    '(company-quickhelp-color-background "#4F4F4F")
-;;    '(company-quickhelp-color-foreground "#DCDCCC")
-;;    '(compilation-message-face 'default)
-;;    '(cua-global-mark-cursor-color "#2aa198")
-;;    '(cua-normal-cursor-color "#657b83")
-;;    '(cua-overwrite-cursor-color "#b58900")
-;;    '(cua-read-only-cursor-color "#859900")
-;;    '(custom-safe-themes
-;;      '("fee7287586b17efbfda432f05539b58e86e059e78006ce9237b8732fde991b4c" "8efa3d21b3fa1ac084798fae4e89848ec26ae5c724b9417caf4922f4b2e31c2a" "f5b6be56c9de9fd8bdd42e0c05fecb002dedb8f48a5f00e769370e4517dde0e8" "4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "0d75aa06198c4245ac2a8877bfc56503d5d8199cc85da2c65a6791b84afb9024" default))
-;;    '(dap-mode t nil (dap-mode))
-;;    '(evil-want-Y-yank-to-eol nil)
-;;    '(fci-rule-color "#383838")
-;;    '(helm-completion-style 'helm)
-;;    '(highlight-changes-colors '("#d33682" "#6c71c4"))
-;;    '(highlight-symbol-colors
-;;      '("#efe5da4aafb2" "#cfc5e1add08c" "#fe53c9e7b34f" "#dbb6d3c3dcf4" "#e183dee1b053" "#f944cc6dae48" "#d360dac5e06a"))
-;;    '(highlight-symbol-foreground-color "#586e75")
-;;    '(highlight-tail-colors
-;;      '(("#eee8d5" . 0)
-;;        ("#b3c34d" . 20)
-;;        ("#6ccec0" . 30)
-;;        ("#74adf5" . 50)
-;;        ("#e1af4b" . 60)
-;;        ("#fb7640" . 70)
-;;        ("#ff699e" . 85)
-;;        ("#eee8d5" . 100)))
-;;    '(hl-bg-colors
-;;      '("#e1af4b" "#fb7640" "#ff6849" "#ff699e" "#8d85e7" "#74adf5" "#6ccec0" "#b3c34d"))
-;;    '(hl-fg-colors
-;;      '("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3"))
-;;    '(hl-todo-keyword-faces
-;;      '(("TODO" . "#dc752f")
-;;        ("NEXT" . "#dc752f")
-;;        ("Luyang" . "#1e90ff")
-;;        ("THEM" . "#2d9574")
-;;        ("WIP" . "#3a81c3")
-;;        ("OKAY" . "#3a81c3")
-;;        ("BLOCKED" . "#f2241f")
-;;        ("DONT" . "#f2241f")
-;;        ("FAIL" . "#f2241f")
-;;        ("DONE" . "#42ae2c")
-;;        ("NOTE" . "#b1951d")
-;;        ("KLUDGE" . "#b1951d")
-;;        ("HACK" . "#b1951d")
-;;        ("TEMP" . "#b1951d")
-;;        ("FIXME" . "#dc752f")
-;;        ("XXX+" . "#dc752f")
-;;        ("\\?\\?\\?+" . "#dc752f")))
-;;    '(lsp-ui-doc-border "#586e75")
-;;    '(nrepl-message-colors
-;;      '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
-;;    '(org-agenda-files
-;;      '("~/Dropbox/org/daily/30092021.org" "/Users/rubber/Dropbox/org/daily/29092021.org"))
-;;    '(org-fontify-done-headline nil)
-;;    '(org-fontify-todo-headline nil)
-;;    '(org-todo-keyword-faces
-;;      '(("REVIEW" . "#1e90ff")
-;;        ("WIP" . "#600170")
-;;        ("DONE" . "#55dd05")
-;;        ("BLOCKED" . "#f2241f")
-;;        ("NEXT" . "#00bfff")))
-;;    '(org-todo-keywords '((sequence "TODO" "DONE" "NEXT" "WIP" "REVIEW" "BLOCKED")))
-;;    '(package-selected-packages
-;;      '(multi yaml-mode x86-lookup nasm-mode csv-mode parrot zonokai-emacs yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify vterm volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org tide terminal-here tagedit symon symbol-overlay s string-inflection string-edit sphinx-doc spaceline-all-the-icons smeargle slim-mode shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters quickrun pytest pyenv-mode pydoc py-isort pug-mode prettier-js popwin poetry plantuml-mode pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets password-generator paradox overseer orgit-forge org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-download org-contrib org-cliplink open-junk-file npm-mode nose nodejs-repl nameless mvn multi-term multi-line s mmm-mode minitest maven-test-mode markdown-toc macrostep lsp-ui lsp-python-ms lsp-pyright lsp-origami lsp-java lorem-ipsum livid-mode live-py-mode link-hint s json-reformat json-navigator json-mode js2-refactor js-doc inspector info+ indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt helm-xref s helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-lsp helm-ls-git helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode groovy-imports google-translate google-c-style golden-ratio gnuplot gitignore-templates git-timemachine git-modes git-messenger git-link git-gutter-fringe gh-md gendoxy geben fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-terminal-cursor-changer evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emr emojify emoji-cheat-sheet-plus emmet-mode elisp-slime-nav elisp-def editorconfig dumb-jump drupal-mode drag-stuff dotenv-mode s disaster dired-quick-sort diminish devdocs define-word cython-mode cpp-auto-include company-ycmd company-web company-rtags company-phpactor company-php company-emoji company-c-headers company-anaconda column-enforce-mode -sanityinc-tomorrow -sanityinc-solarized color-identifiers-mode clean-aindent-mode chruby centered-cursor-mode ccls bundler browse-at-remote blacken auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))
-;;    '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
-;;    '(pos-tip-background-color "#eee8d5")
-;;    '(pos-tip-foreground-color "#586e75")
-;;    '(python-shell-exec-path '("/opt/homebrew/bin/python3"))
-;;    '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
-;;    '(term-default-bg-color "#fdf6e3")
-;;    '(term-default-fg-color "#657b83")
-;;    '(vc-annotate-background "#2B2B2B")
-;;    '(vc-annotate-background-mode nil)
-;;    '(vc-annotate-color-map
-;;      '((20 . "#BC8383")
-;;        (40 . "#CC9393")
-;;        (60 . "#DFAF8F")
-;;        (80 . "#D0BF8F")
-;;        (100 . "#E0CF9F")
-;;        (120 . "#F0DFAF")
-;;        (140 . "#5F7F5F")
-;;        (160 . "#7F9F7F")
-;;        (180 . "#8FB28F")
-;;        (200 . "#9FC59F")
-;;        (220 . "#AFD8AF")
-;;        (240 . "#BFEBBF")
-;;        (260 . "#93E0E3")
-;;        (280 . "#6CA0A3")
-;;        (300 . "#7CB8BB")
-;;        (320 . "#8CD0D3")
-;;        (340 . "#94BFF3")
-;;        (360 . "#DC8CC3")))
-;;    '(vc-annotate-very-old-color "#DC8CC3")
-;;    '(weechat-color-list
-;;      '(unspecified "#fdf6e3" "#eee8d5" "#a7020a" "#dc322f" "#5b7300" "#859900" "#866300" "#b58900" "#0061a8" "#268bd2" "#a00559" "#d33682" "#007d76" "#2aa198" "#657b83" "#839496"))
-;;    '(which-key-mode t)
-;;    '(xterm-color-names
-;;      ["#eee8d5" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#073642"])
-;;    '(xterm-color-names-bright
-;;      ["#fdf6e3" "#cb4b16" "#93a1a1" "#839496" "#657b83" "#6c71c4" "#586e75" "#002b36"]))
-;;   (custom-set-faces
-;;    ;; custom-set-faces was added by Custom.
-;;    ;; If you edit it by hand, you could mess it up, so be careful.
-;;    ;; Your init file should contain only one such instance.
-;;    ;; If there is more than one, they won't work right.
-;;    '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
-;;   )
+;; Do not write anything past this comment. This is where Emacs will
+;; auto-generate custom variable definitions.
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+)
