@@ -859,14 +859,8 @@ before packages are loaded."
     ;; disable inline previews
     (delq 'company-preview-if-just-one-frontend company-frontends))
   
-  (with-eval-after-load 'copilot
-    (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
-    (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
-
   (add-hook 'prog-mode-hook 'copilot-mode)
 
-  (define-key evil-insert-state-map (kbd "C-<tab>") 'copilot-accept-completion-by-word)
-  (define-key evil-insert-state-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;                                   Fira                                      ;
@@ -950,10 +944,28 @@ before packages are loaded."
   ;; Emacs Key-bindings
   (global-set-key (kbd "C-c b") 'luyang-spaceline-placeholder)
 
-  ;; Spacemacs Key-bindings
+  ;;
+  ;;; Spacemacs Key-bindings
+  ;;
+                                        ;
+  ;; Co-pilot Keybindings
   (define-prefix-command 'copilot)
   (spacemacs/set-leader-keys "a C" 'copilot)
   (spacemacs/set-leader-keys "a C e" 'copilot-mode)
+  (spacemacs/set-leader-keys "a C d" 'copilot-diagnose)
+  (spacemacs/set-leader-keys "a C l" 'copilot-login)
+  (spacemacs/set-leader-keys "a C c" 'copilot-clear-overlay)
+ 
+  (with-eval-after-load 'copilot
+    (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+    (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+    (define-key copilot-completion-map (kbd "<return>") 'copilot-accept-completion))
+
+  ;; (define-key evil-insert-state-map (kbd "C-<tab>") 'copilot-accept-completion-by-word)
+  ;; (define-key evil-insert-state-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
+  (define-key evil-insert-state-map (kbd "C-<tab>") 'copilot-next-completion)
+  (define-key evil-insert-state-map (kbd "C-TAB") 'copilot-next-completion)
+
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;                                   Enable Modes                              ;
