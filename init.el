@@ -45,9 +45,6 @@ This function should only modify configuration layer settings."
      ;; kotlin
      ;; plantuml
      ;; yaml
-     ;; (spotify :variables
-     ;;          counsel-spotify-client-id "b1df40967cc24f128afca0b5828d42d8"
-     ;;          counsel-spotify-client-secret "2cb6f66e5a0c4544b71622745ea637f6")
      ;; asm
      ;; php
      ;; ruby
@@ -96,17 +93,17 @@ This function should only modify configuration layer settings."
    ;; this file). If you need some configuration for these packages, then
    ;; consider creating a layer. You can also put the configuration in
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
-;; `:location' property: '(your-package :location "~/path/to/your-package/")
+   ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(parrot
                                       slime
                                       beacon
                                       (copilot :location (recipe
                                                           :fetcher github
-                                                          :repo "zerolfx/copilot.el"
+                                                          :repo "luyangliuable/copilot.el"
                                                           :files ("*.el" "dist"))))
 
-                                      ;; (beacon :location "~/beacon")
+   ;; (beacon :location "~/beacon")
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -891,42 +888,42 @@ before packages are loaded."
            (cons s (append prefix suffix (list (decode-char 'ucs code))))))
        list)))
 
-(when (window-system)
-  (set-frame-font "Fira Code"))
+  (when (window-system)
+    (set-frame-font "Fira Code"))
 
 
-(let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
-               (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
-               (36 . ".\\(?:>\\)")
-               (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
-               (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
-               (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
-               (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
-               (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
-               (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
-               (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
-               (48 . ".\\(?:x[a-zA-Z]\\)")
-               (58 . ".\\(?:::\\|[:=]\\)")
-               (59 . ".\\(?:;;\\|;\\)")
-               (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
-               (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
-               (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
-               (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
-               (91 . ".\\(?:]\\)")
-               (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
-               (94 . ".\\(?:=\\)")
-               (119 . ".\\(?:ww\\)")
-               (123 . ".\\(?:-\\)")
-               ;; (123 . ".\\(?:\\(?:{|\\)\\|[{|]\\)") ;; Do this for {|
-               (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
-               ;; (125 . ".\\(?:\\(?:}|\\)\\|[}|]\\)") ;; Do this for |}
-               (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
-               )
-             ))
+  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+                 (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+                 (36 . ".\\(?:>\\)")
+                 (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+                 (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+                 (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+                 (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+                 (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+                 (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+                 (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+                 (48 . ".\\(?:x[a-zA-Z]\\)")
+                 (58 . ".\\(?:::\\|[:=]\\)")
+                 (59 . ".\\(?:;;\\|;\\)")
+                 (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+                 (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+                 (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+                 (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+                 (91 . ".\\(?:]\\)")
+                 (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+                 (94 . ".\\(?:=\\)")
+                 (119 . ".\\(?:ww\\)")
+                 (123 . ".\\(?:-\\)")
+                 ;; (123 . ".\\(?:\\(?:{|\\)\\|[{|]\\)") ;; Do this for {|
+                 (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+                 ;; (125 . ".\\(?:\\(?:}|\\)\\|[}|]\\)") ;; Do this for |}
+                 (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+                 )
+               ))
 
-  (dolist (char-regexp alist)
-    (set-char-table-range composition-function-table (car char-regexp)
-                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
+    (dolist (char-regexp alist)
+      (set-char-table-range composition-function-table (car char-regexp)
+                            `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
   ;; disable ligatures in helm
   (add-hook 'ediff-mode-hook
@@ -938,62 +935,6 @@ before packages are loaded."
             (lambda ()
               (setq auto-composition-mode nil)))
 
-  ;; (defun fira-code-mode--make-alist (list)
-  ;;   "Generate prettify-symbols alist from LIST."
-  ;;   (let ((idx -1))
-  ;;     (mapcar
-  ;;      (lambda (s)
-  ;;        (setq idx (1+ idx))
-  ;;        (let* ((code (+ #Xe100 idx))
-  ;;               (width (string-width s))
-  ;;               (prefix ())
-  ;;               (suffix '(?\s (Br . Br)))
-  ;;               (n 1))
-  ;;          (while (< n width)
-  ;;            (setq prefix (append prefix '(?\s (Br . Bl))))
-  ;;            (setq n (1+ n)))
-  ;;          (cons s (append prefix suffix (list (decode-char 'ucs code))))))
-  ;;      list)))
-
-  ;; (defconst fira-code-mode--ligatures
-  ;;   '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
-  ;;     "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
-  ;;     "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
-  ;;     "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
-  ;;     ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
-  ;;     "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
-  ;;     "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
-  ;;     "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
-  ;;     ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
-  ;;     "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
-  ;;     "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
-  ;;     "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
-  ;;     "x" ":" "+" "+" "*"))
-
-  ;; (defvar fira-code-mode--old-prettify-alist)
-
-  ;; (defun fira-code-mode--enable ()
-  ;;   "Enable Fira Code ligatures in current buffer."
-  ;;   (setq-local fira-code-mode--old-prettify-alist prettify-symbols-alist)
-  ;;   (setq-local prettify-symbols-alist (append (fira-code-mode--make-alist fira-code-mode--ligatures) fira-code-mode--old-prettify-alist))
-  ;;   (prettify-symbols-mode t))
-
-  ;; (defun fira-code-mode--disable ()
-  ;;   "Disable Fira Code ligatures in current buffer."
-  ;;   (setq-local prettify-symbols-alist fira-code-mode--old-prettify-alist)
-  ;;   (prettify-symbols-mode -1))
-
-  ;; (define-minor-mode fira-code-mode
-  ;;   "Fira Code ligatures minor mode"
-  ;;   :lighter " Fira Code"
-  ;;   (setq-local prettify-symbols-unprettify-at-point 'right-edge)
-  ;;   (if fira-code-mode
-  ;;       (fira-code-mode--enable)
-  ;;     (fira-code-mode--disable)))
-
-  ;; (defun fira-code-mode--setup ()
-  ;;   "Setup Fira Code Symbols"
-  ;;   (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol"))
 
   ;; enable run lisp in gnu emacs
   (setq inferior-lisp-program "sbcl")
@@ -1005,7 +946,14 @@ before packages are loaded."
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;                                   Key-bindings                              ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  ;; Emacs Key-bindings
   (global-set-key (kbd "C-c b") 'luyang-spaceline-placeholder)
+
+  ;; Spacemacs Key-bindings
+  (define-prefix-command 'copilot)
+  (spacemacs/set-leader-keys "a C" 'copilot)
+  (spacemacs/set-leader-keys "a C e" 'copilot-mode)
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;                                   Enable Modes                              ;
@@ -1023,8 +971,8 @@ before packages are loaded."
       ;; (setq dap-python-executable "python3")
       ;; (blink-cursor-mode 1)
       ;; (smartparens-mode 0)
+      )
     )
-  )
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1049,49 +997,48 @@ before packages are loaded."
   ;                                    Parrot                                   ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (setq parrot-rotate-dict '(
-      (:rot ("alpha" "beta") :caps t :lower nil)
-      ;; => rotations are "Alpha" "Beta"
+                             (:rot ("alpha" "beta") :caps t :lower nil)
+                             ;; => rotations are "Alpha" "Beta"
 
-      (:rot ("snek" "snake" "stawp"))
-      ;; => rotatons are "snek" "snake" "stawp"
+                             (:rot ("snek" "snake" "stawp"))
+                             ;; => rotatons are "snek" "snake" "stawp"
 
-      (:rot ("yes" "no") :caps t :upcase t)
-      ;; => rotations are "yes" "no", "Yes" "No", "YES" "NO"
+                             (:rot ("yes" "no") :caps t :upcase t)
+                             ;; => rotations are "yes" "no", "Yes" "No", "YES" "NO"
 
-      (:rot ("1" "0"))
-      ;; => rotations for 1 and 0
+                             (:rot ("1" "0"))
+                             ;; => rotations for 1 and 0
 
-      (:rot ("&" "|"))
-      ;; => rotations are "&" "|"
+                             (:rot ("&" "|"))
+                             ;; => rotations are "&" "|"
 
-      (:rot ("Luyang" "is" "a" "bad" "programmer" ":D") :caps t :upcase t)
-      ;; ?#!!!!!
+                             ;; ?#!!!!!
 
-      ;; default dictionary starts here ('v')
-      (:rot ("right-only" "left-only" "default" "no-fringe" "minimal") :caps t :upcase t)
-      (:rot ("begin" "end") :caps t :upcase t)
-      (:rot ("enable" "disable") :caps t :upcase t)
-      (:rot ("enter" "exit") :caps t :upcase t)
-      (:rot ("forward" "backward") :caps t :upcase t)
-      (:rot ("front" "rear" "back") :caps t :upcase t)
-      (:rot ("get" "set") :caps t :upcase t)
-      (:rot ("high" "low") :caps t :upcase t)
-      (:rot ("in" "out") :caps t :upcase t)
-      (:rot ("left" "right") :caps t :upcase t)
-      (:rot ("min" "max") :caps t :upcase t)
-      (:rot ("on" "off") :caps t :upcase t)
-      (:rot ("prev" "next"))
-      (:rot ("start" "stop") :caps t :upcase t)
-      (:rot ("true" "false") :caps t :upcase t)
-      (:rot ("&&" "||"))
-      (:rot ("==" "!="))
-      (:rot ("." "->"))
-      (:rot ("if" "else" "elif"))
-      (:rot ("ifdef" "ifndef"))
-      (:rot ("int8_t" "int16_t" "int32_t" "int64_t"))
-      (:rot ("uint8_t" "uint16_t" "uint32_t" "uint64_t"))
-      (:rot ("1" "2" "3" "4" "5" "6" "7" "8" "9" "10"))
-      (:rot ("1st" "2nd" "3rd" "4th" "5th" "6th" "7th" "8th" "9th" "10th"))))
+                             ;; default dictionary starts here ('v')
+                             (:rot ("right-only" "left-only" "default" "no-fringe" "minimal") :caps t :upcase t)
+                             (:rot ("begin" "end") :caps t :upcase t)
+                             (:rot ("enable" "disable") :caps t :upcase t)
+                             (:rot ("enter" "exit") :caps t :upcase t)
+                             (:rot ("forward" "backward") :caps t :upcase t)
+                             (:rot ("front" "rear" "back") :caps t :upcase t)
+                             (:rot ("get" "set") :caps t :upcase t)
+                             (:rot ("high" "low") :caps t :upcase t)
+                             (:rot ("in" "out") :caps t :upcase t)
+                             (:rot ("left" "right") :caps t :upcase t)
+                             (:rot ("min" "max") :caps t :upcase t)
+                             (:rot ("on" "off") :caps t :upcase t)
+                             (:rot ("prev" "next"))
+                             (:rot ("start" "stop") :caps t :upcase t)
+                             (:rot ("true" "false") :caps t :upcase t)
+                             (:rot ("&&" "||"))
+                             (:rot ("==" "!="))
+                             (:rot ("." "->"))
+                             (:rot ("if" "else" "elif"))
+                             (:rot ("ifdef" "ifndef"))
+                             (:rot ("int8_t" "int16_t" "int32_t" "int64_t"))
+                             (:rot ("uint8_t" "uint16_t" "uint32_t" "uint64_t"))
+                             (:rot ("1" "2" "3" "4" "5" "6" "7" "8" "9" "10"))
+                             (:rot ("1st" "2nd" "3rd" "4th" "5th" "6th" "7th" "8th" "9th" "10th"))))
 
   (define-key evil-normal-state-map (kbd "[r") 'parrot-rotate-prev-word-at-point)
   (define-key evil-normal-state-map (kbd "]r") 'parrot-rotate-next-word-at-point))
@@ -1104,4 +1051,4 @@ before packages are loaded."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-)
+  )
