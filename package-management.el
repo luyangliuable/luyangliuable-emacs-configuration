@@ -1,6 +1,259 @@
-(defun package-management ()
-  ;; A list of packages that will not be installed and loaded.
-  (setq-default
-   dotspacemacs-excluded-packages '(spotify multi xkcd yaml-mode x86-lookup nasm-mode csv-mode zonokai-emacs zenburn-theme zen-and-art-theme yapfify xterm-color ws-butler writeroom-mode winum white-sand-theme web-mode web-beautify volatile-highlights uuidgen underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme treemacs-projectile toxi-theme terminal-here tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit symon symbol-overlay sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection string-edit sphinx-doc spaceline-all-the-icons spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode shell-pop seti-theme seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe reverse-theme restart-emacs rebecca-theme rbenv rake rainbow-identifiers rainbow-delimiters railscasts-theme quickrun pytest pyenv-mode pydoc py-isort purple-haze-theme pug-mode professional-theme prettier-js popwin poetry plantuml-mode planet-theme pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets phoenix-dark-pink-theme phoenix-dark-mono-theme paradox overseer open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme npm-mode nose nodejs-repl noctilux-theme naquadah-theme nameless mvn mustang-theme multi-term multi-line monokai-theme monochrome-theme molokai-theme moe-theme modus-themes mmm-mode minitest minimal-theme maven-test-mode material-theme markdown-toc majapahit-theme madhat2r-theme macrostep lush-theme lorem-ipsum livid-mode live-py-mode link-hint light-soap-theme kaolin-themes json-reformat json-navigator json-mode js2-refactor js-doc jbeans-theme jazz-theme ir-black-theme inspector inkpot-theme info+ indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme groovy-mode groovy-imports grandshell-theme gotham-theme google-translate google-c-style golden-ratio gnuplot git-modes git-messenger git-link git-gutter-fringe gh-md gendoxy geben gandalf-theme fuzzy font-lock+ flx-ido flatui-theme flatland-theme farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help emr emojify emoji-cheat-sheet-plus emmet-mode elisp-slime-nav elisp-def editorconfig dumb-jump drupal-mode drag-stuff dracula-theme dotenv-mode doom-themes django-theme disaster dired-quick-sort diminish devdocs define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cython-mode cyberpunk-theme cpp-auto-include company-ycmd company-web company-rtags company-phpactor company-php company-emoji company-c-headers company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-identifiers-mode clues-theme clean-aindent-mode chruby chocolate-theme cherry-blossom-theme centered-cursor-mode ccls busybee-theme bundler bubbleberry-theme browse-at-remote blacken birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme ace-link ace-jump-ac-ispell)
-  )
-)
+(setq excluded-packages '(
+;; ----------------------------------------------------------------
+;; Mainly Redundant Themes and Less often used packages
+;; To speed up emacs and save space
+;; ----------------------------------------------------------------
+;; aggressive-indent
+;; auto-compile
+;; auto-dictionary
+;; auto-highlight-symbol
+;; auto-yasnippet
+;; blacken
+;; browse-at-remote
+;; bundler
+;; ccls
+;; centered-cursor-mode
+;; chruby
+;; clean-aindent-mode
+;; color-identifiers-mode
+;; color-theme-sanityinc-tomorrow
+;; column-enforce-mode
+;; company-anaconda
+;; company-c-headers
+;; company-emoji
+;; company-php
+;; company-phpactor
+;; company-rtags
+;; company-web
+;; company-ycmd
+;; cpp-auto-include
+;; cython-mode
+;; define-word
+;; devdocs
+;; diminish
+;; dired-quick-sort
+;; disaster
+;; doom-themes
+;; dotenv-mode
+;; drag-stuff
+;; drupal-mode
+;; dumb-jump
+;; editorconfig
+;; elisp-def
+;; elisp-slime-nav
+;; emmet-mode
+;; emoji-cheat-sheet-plus
+;; emojify
+;; emr
+;; esh-help
+;; eshell-prompt-extras
+;; eshell-z
+;; eval-sexp-fu
+;; expand-region
+;; eyebrowse
+;; flx-ido
+;; font-lock+
+;; fuzzy
+;; geben
+;; gendoxy
+;; gh-md
+;; git-gutter-fringe
+;; git-link
+;; git-messenger
+;; git-modes
+;; gnuplot
+;; golden-ratio
+;; google-c-style
+;; google-translate
+;; groovy-imports
+;; groovy-mode
+;; hide-comnt
+;; highlight-indentation
+;; highlight-numbers
+;; highlight-parentheses
+;; hl-todo
+;; hungry-delete
+;; hybrid-mode
+;; impatient-mode
+;; importmagic
+;; indent-guide
+;; info+
+;; inspector
+;; js-doc
+;; js2-refactor
+;; json-mode
+;; json-navigator
+;; json-reformat
+;; link-hint
+;; live-py-mode
+;; livid-mode
+;; lorem-ipsum
+;; macrostep
+;; markdown-toc
+;; mmm-mode
+;; multi-term
+;; mvn
+;; nodejs-repl
+;; nose
+;; npm-mode
+;; open-junk-file
+;; overseer
+;; paradox
+;; pippel
+;; popwin
+;; prettier-js
+;; py-isort
+;; pydoc
+;; pyenv-mode
+;; pytest
+;; quickrun
+;; rainbow-delimiters
+;; rainbow-identifiers
+;; rake
+;; rbenv
+;; restart-emacs
+;; robe
+;; rspec-mode
+;; rubocop
+;; rubocopfmt
+;; rvm
+;; seeing-is-believing ;; Ruby gem to evaluate Ruby code
+;; slim-mode ;; no idea what this is
+;; smeargle
+;; sphinx-doc
+;; string-inflection
+;; tao-theme
+;; terminal-here
+;; treemacs-projectile
+;; uuidgen
+;; volatile-highlights
+;; web-beautify
+;; web-mode
+;; winum
+;; writeroom-mode
+;; x86-lookup
+;; yapfify
+;; zen-and-art-theme
+;; zenburn-theme
+afternoon-theme
+alect-themes
+ample-theme
+ample-zen-theme
+anti-zenburn-theme
+apropospriate-theme
+badwolf-theme
+birds-of-paradise-plus-theme
+bubbleberry-theme
+busybee-theme
+cherry-blossom-theme
+chocolate-theme
+clues-theme
+color-theme-sanityinc-solarized
+csv-mode
+cyberpunk-theme
+dakrone-theme
+darkburn-theme
+darkmine-theme
+darkokai-theme
+darktooth-theme
+django-theme
+dracula-theme
+espresso-theme
+exotica-theme
+eziam-theme
+fancy-battery
+farmhouse-theme
+flatland-theme
+flatui-theme
+gandalf-theme
+gotham-theme
+grandshell-theme
+gruber-darker-theme
+gruvbox-theme
+hc-zenburn-theme
+hemisu-theme
+heroku-theme
+inkpot-theme
+ir-black-theme
+jazz-theme
+jbeans-theme
+kaolin-themes
+light-soap-theme
+lush-theme
+madhat2r-theme
+majapahit-theme
+material-theme
+maven-test-mode
+minimal-theme
+minitest ;; ruby minitest
+modus-themes
+moe-theme
+molokai-theme
+monochrome-theme
+monokai-theme
+multi
+mustang-theme
+nameless ;; Hide package namespaces in your emacs-lisp code.
+naquadah-theme
+nasm-mode ;; assembly language
+noctilux-theme
+obsidian-theme
+occidental-theme
+oldlace-theme
+omtose-phellack-theme
+phoenix-dark-mono-theme
+phoenix-dark-pink-theme
+php-auto-yasnippets
+php-extras
+phpcbf
+phpunit
+pip-requirements
+pipenv
+planet-theme
+plantuml-mode
+poetry
+professional-theme
+pug-mode ;; no idea what this is
+purple-haze-theme
+railscasts-theme
+rebecca-theme
+reverse-theme
+ruby-hash-syntax
+ruby-refactor
+ruby-test-mode
+ruby-tools
+sass-mode
+scss-mode
+seti-theme
+shell-pop
+smyx-theme
+soft-charcoal-theme
+soft-morning-theme
+soft-stone-theme
+solarized-theme
+soothe-theme
+spacegray-theme
+spotify
+string-edit ;; TODO this doesn't work so it is excluded
+subatomic-theme
+subatomic256-theme
+sublime-themes
+sunny-day-theme
+symbol-overlay
+symon
+tagedit
+tango-2-theme
+tango-plus-theme
+tangotango-theme
+toxi-theme
+twilight-anti-bright-theme
+twilight-bright-theme
+twilight-theme
+ujelly-theme
+underwater-theme
+white-sand-theme
+ws-butler
+xkcd
+xterm-color
+yaml-mode
+zonokai-emacs))

@@ -109,7 +109,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(;; ----------------------------------------------------------------
+   dotspacemacs-excluded-packages '( ;; ----------------------------------------------------------------
                                     ;; Mainly Redundant Themes and Less often used packages
                                     ;; To speed up emacs and save space
                                     ;; ----------------------------------------------------------------
@@ -955,7 +955,7 @@ before packages are loaded."
   (spacemacs/set-leader-keys "a C d" 'copilot-diagnose)
   (spacemacs/set-leader-keys "a C l" 'copilot-login)
   (spacemacs/set-leader-keys "a C c" 'copilot-clear-overlay)
- 
+  
   (with-eval-after-load 'copilot
     (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
     (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
