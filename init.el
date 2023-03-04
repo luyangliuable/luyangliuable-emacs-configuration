@@ -747,7 +747,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `rg', `ag', `pt', `ack' and `grep'.
    ;; (default '("rg" "ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("ag" "rg" "pt" "ack" "grep")
 
    ;; Format specification for setting the frame title.
    ;; %a - the `abbreviated-file-name', or `buffer-name'
@@ -861,7 +861,6 @@ before packages are loaded."
   
   (add-hook 'prog-mode-hook 'copilot-mode)
 
-
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;                                   Fira                                      ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -884,8 +883,6 @@ before packages are loaded."
 
   (when (window-system)
     (set-frame-font "Fira Code"))
-
-
 
   (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
                  (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
@@ -967,8 +964,6 @@ before packages are loaded."
   (define-key evil-insert-state-map (kbd "C-<tab>") 'copilot-next-completion)
   (define-key evil-insert-state-map (kbd "C-TAB") 'copilot-next-completion)
 
-
-
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;                                   Minor Stuff                               ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -982,6 +977,8 @@ before packages are loaded."
       (scroll-bar-mode)
       (beacon-mode)
       (fringe-mode "right-only")
+      ;; When in treemacs mode disable follow mode
+      (add-hook 'treemacs-mode-hook 'treemacs-follow-mode)
       ;; (display-time)
       ;; (provide 'fira-code-mode)
       ;; (require 'dap-python)
@@ -1067,7 +1064,6 @@ before packages are loaded."
   (define-key evil-normal-state-map (kbd "[r") 'parrot-rotate-prev-word-at-point)
   (define-key evil-normal-state-map (kbd "]r") 'parrot-rotate-next-word-at-point))
 
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (defun dotspacemacs/emacs-custom-settings ()
@@ -1076,4 +1072,3 @@ This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
 )
-
