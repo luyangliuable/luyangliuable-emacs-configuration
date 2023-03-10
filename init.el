@@ -244,129 +244,71 @@ This function should only modify configuration layer settings."
                                     ;; yapfify
                                     ;; zen-and-art-theme
                                     ;; zenburn-theme
-                                    afternoon-theme
-                                    alect-themes
-                                    ample-theme
-                                    groovy-mode
-                                    ample-zen-theme
-                                    anti-zenburn-theme
-                                    apropospriate-theme
-                                    badwolf-theme
-                                    birds-of-paradise-plus-theme
-                                    bubbleberry-theme
-                                    busybee-theme
-                                    cherry-blossom-theme
-                                    chocolate-theme
-                                    clues-theme
-                                    color-theme-sanityinc-solarized
-                                    csv-mode
-                                    cyberpunk-theme
-                                    dakrone-theme
-                                    darkburn-theme
-                                    darkmine-theme
-                                    darkokai-theme
-                                    darktooth-theme
-                                    django-theme
-                                    dracula-theme
-                                    espresso-theme
-                                    exotica-theme
-                                    eziam-theme
-                                    fancy-battery
-                                    farmhouse-theme
-                                    flatland-theme
-                                    flatui-theme
-                                    gandalf-theme
-                                    gotham-theme
-                                    grandshell-theme
-                                    gruber-darker-theme
-                                    gruvbox-theme
-                                    hc-zenburn-theme
-                                    hemisu-theme
-                                    heroku-theme
-                                    inkpot-theme
-                                    ir-black-theme
-                                    jazz-theme
-                                    jbeans-theme
-                                    kaolin-themes
-                                    light-soap-theme
-                                    lush-theme
-                                    madhat2r-theme
-                                    majapahit-theme
-                                    material-theme
-                                    maven-test-mode
-                                    minimal-theme
-                                    minitest ;; ruby minitest
-                                    modus-themes
-                                    moe-theme
-                                    molokai-theme
-                                    monochrome-theme
-                                    monokai-theme
-                                    multi
+                                    afternoon-theme alect-themes
+                                    ample-theme groovy-mode
+                                    ample-zen-theme anti-zenburn-theme
+                                    apropospriate-theme badwolf-theme
+                                    birds-of-paradise-plus-theme bubbleberry-theme
+                                    busybee-theme cherry-blossom-theme
+                                    chocolate-theme clues-theme
+                                    color-theme-sanityinc-solarized csv-mode
+                                    cyberpunk-theme dakrone-theme
+                                    darkburn-theme darkmine-theme
+                                    darkokai-theme darktooth-theme
+                                    django-theme dracula-theme
+                                    espresso-theme exotica-theme
+                                    eziam-theme fancy-battery
+                                    farmhouse-theme flatland-theme
+                                    flatui-theme gandalf-theme
+                                    gotham-theme grandshell-theme
+                                    gruber-darker-theme gruvbox-theme
+                                    hc-zenburn-theme hemisu-theme
+                                    heroku-theme inkpot-theme
+                                    ir-black-theme jazz-theme
+                                    jbeans-theme kaolin-themes
+                                    light-soap-theme lush-theme
+                                    madhat2r-theme majapahit-theme
+                                    material-theme maven-test-mode
+                                    minimal-theme minitest ;; ruby minitest
+                                    modus-themes moe-theme
+                                    molokai-theme monochrome-theme
+                                    monokai-theme multi
                                     mustang-theme
                                     nameless ;; Hide package namespaces in your emacs-lisp code.
                                     naquadah-theme
                                     nasm-mode ;; assembly language
-                                    noctilux-theme
-                                    obsidian-theme
-                                    occidental-theme
-                                    oldlace-theme
-                                    omtose-phellack-theme
-                                    phoenix-dark-mono-theme
-                                    phoenix-dark-pink-theme
-                                    php-auto-yasnippets
-                                    php-extras
-                                    phpcbf
-                                    phpunit
-                                    pip-requirements
-                                    pipenv
-                                    planet-theme
-                                    plantuml-mode
-                                    poetry
+                                    noctilux-theme obsidian-theme
+                                    occidental-theme oldlace-theme
+                                    omtose-phellack-theme phoenix-dark-mono-theme
+                                    phoenix-dark-pink-theme php-auto-yasnippets
+                                    php-extras phpcbf
+                                    phpunit pip-requirements
+                                    pipenv planet-theme
+                                    plantuml-mode poetry
                                     professional-theme
                                     pug-mode ;; no idea what this is
-                                    purple-haze-theme
-                                    railscasts-theme
-                                    rebecca-theme
-                                    reverse-theme
-                                    ruby-hash-syntax
-                                    ruby-refactor
-                                    ruby-test-mode
-                                    ruby-tools
-                                    sass-mode
-                                    scss-mode
-                                    seti-theme
-                                    shell-pop
-                                    smyx-theme
-                                    soft-charcoal-theme
-                                    soft-morning-theme
-                                    soft-stone-theme
-                                    solarized-theme
-                                    soothe-theme
-                                    spacegray-theme
-                                    spotify
+                                    purple-haze-theme railscasts-theme
+                                    rebecca-theme reverse-theme
+                                    ruby-hash-syntax ruby-refactor
+                                    ruby-test-mode ruby-tools
+                                    sass-mode scss-mode
+                                    seti-theme shell-pop
+                                    smyx-theme soft-charcoal-theme
+                                    soft-morning-theme soft-stone-theme
+                                    solarized-theme soothe-theme
+                                    spacegray-theme spotify
                                     string-edit ;; TODO this doesn't work so it is excluded
-                                    subatomic-theme
-                                    subatomic256-theme
-                                    sublime-themes
-                                    sunny-day-theme
-                                    symbol-overlay
-                                    symon
-                                    tagedit
-                                    tango-2-theme
-                                    tango-plus-theme
-                                    tangotango-theme
-                                    toxi-theme
-                                    twilight-anti-bright-theme
-                                    twilight-bright-theme
-                                    twilight-theme
-                                    ujelly-theme
-                                    underwater-theme
-                                    white-sand-theme
-                                    ws-butler
-                                    xkcd
-                                    xterm-color
-                                    yaml-mode
-                                    zonokai-emacs)
+                                    subatomic-theme subatomic256-theme
+                                    sublime-themes sunny-day-theme
+                                    symbol-overlay symon
+                                    tagedit tango-2-theme
+                                    tango-plus-theme tangotango-theme
+                                    toxi-theme twilight-anti-bright-theme
+                                    twilight-bright-theme twilight-theme
+                                    ujelly-theme underwater-theme
+                                    white-sand-theme ws-butler
+                                    xkcd xterm-color
+                                    yaml-mode zonokai-emacs)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
