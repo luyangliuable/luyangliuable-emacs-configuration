@@ -91,7 +91,7 @@ This function should only modify configuration layer settings."
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(parrot
-                                      slime
+                                      ;; slime ;; May not exist anymore
                                       beacon
                                       (copilot :location (recipe
                                                           :fetcher github

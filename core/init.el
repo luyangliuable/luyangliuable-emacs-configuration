@@ -91,7 +91,8 @@ It should only modify the values of Spacemacs settings."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner "/Users/blackfish/myemacsconfiguration/banners/3-d.png"
+   ;; dotspacemacs-startup-banner `random
+   dotspacemacs-startup-banner "/Users/blackfish/myemacsconfiguration/banners/3-a.png"
 
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
@@ -140,9 +141,9 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-themes '(doom-zenburn ;; good on the eye (was zenburn)
                          doom-oceanic-next ;; best looking theme
                          doom-feather-light ;; Elegance
-                         doom-feather-dark ;; Elegance but dark
-                         doom-ayu-light
-                         doom-ayu-mirage
+                         ;; doom-feather-dark ;; Elegance but dark
+                         ;; doom-ayu-light
+                         ;; doom-ayu-mirage
                          sanityinc-tomorrow-blue ;; to aide my memory in learning how to code
                          green-screen ;; hacker
                          solarized-light ;; popular
@@ -266,7 +267,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t
+   dotspacemacs-fullscreen-at-startup nil
 
    ;; If non-nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
@@ -306,7 +307,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
 
    ;; Show the scroll bar while scrolling. The auto hide time can be configured
    ;; by setting this variable to a number. (default t)
@@ -356,7 +357,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil, start an Emacs server if one is not already running.
    ;; (default nil)
-   dotspacemacs-enable-server nil
+   dotspacemacs-enable-server t
 
    ;; Set the emacs server socket location.
    ;; If nil, uses whatever the Emacs default is, otherwise a directory path
@@ -416,7 +417,7 @@ It should only modify the values of Spacemacs settings."
    ;; indent handling like has been reported for `go-mode'.
    ;; If it does deactivate it here.
    ;; (default t)
-   dotspacemacs-use-clean-aindent-mode t
+   dotspacemacs-use-clean-aindent-mode nil
 
    ;; Accept SPC as y for prompts if non-nil. (default nil)
    dotspacemacs-use-SPC-as-y nil
