@@ -117,7 +117,7 @@ This function should only modify configuration layer settings."
                                     ;; browse-at-remote
                                     ;; bundler
                                     ;; ccls
-                                    ;; centered-cursor-mode
+                                    centered-cursor-mode
                                     ;; chruby
                                     ;; clean-aindent-mode
                                     ;; color-identifiers-mode

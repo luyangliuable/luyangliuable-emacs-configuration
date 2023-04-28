@@ -38,6 +38,8 @@ before packages are loaded."
   (when (window-system)
     (set-frame-font "Fira Code"))
 
+  ;; (advice-add #'treemacs :after (lambda (&rest _) (setq-local treemacs-follow-mode nil)))
+
   (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
                  (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
                  (36 . ".\\(?:>\\)")
