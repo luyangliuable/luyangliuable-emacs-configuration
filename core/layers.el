@@ -44,7 +44,7 @@ This function should only modify configuration layer settings."
      ;; php
      ;; ruby
      ;; xkcd
-     auto-completion
+     ;; auto-completion
      luyang-spaceline-placeholder
      c-c++
      csharp

@@ -138,17 +138,17 @@ It should only modify the values of Spacemacs settings."
 
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
-   dotspacemacs-themes '(doom-zenburn ;; good on the eye (was zenburn)
-                         doom-oceanic-next ;; best looking theme
-                         doom-feather-light ;; Elegance
-                         ;; doom-feather-dark ;; Elegance but dark
+   dotspacemacs-themes '(;; almost-mono-black ;; black
                          ;; doom-ayu-light
                          ;; doom-ayu-mirage
-                         sanityinc-tomorrow-blue ;; to aide my memory in learning how to code
-                         green-screen ;; hacker
-                         solarized-light ;; popular
+                         ;; doom-feather-dark ;; Elegance but dark
                          ;; solarized-dark ;; meh
-                         ;; almost-mono-black ;; black
+                         doom-feather-light ;; Elegance
+                         doom-oceanic-next ;; best looking theme
+                         doom-zenburn ;; good on the eye (was zenburn)
+                         green-screen ;; hacker
+                         sanityinc-tomorrow-blue ;; to aide my memory in learning how to code
+                         solarized-light ;; popular
                          spacemacs-dark ;; default dark mode
                          spacemacs-light ;; defautl light mode
                          tao-yang ;; burn my eyes please
@@ -161,7 +161,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator nil :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -174,8 +174,8 @@ It should only modify the values of Spacemacs settings."
                                ;; "Source Code Pro"
                                :size 14.0
                                :weight ultra-light ;; thin, normal, bold, semi-bold, ultra-light
-                               :width semi-condensed ;; normal, condensed, semi-condensed
-                               )
+                               :width semi-condensed ) ;; normal, condensed, semi-condensed
+                               
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
