@@ -92,10 +92,10 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '(parrot
                                       ;; slime ;; May not exist anymore
                                       beacon
-                                      ;; (copilot :location (recipe
-                                      ;;                     :fetcher github
-                                      ;;                     :repo "luyangliuable/copilot.el"
-                                      ;;                     :files ("*.el" "dist")))
+                                      (copilot :location (recipe
+                                                          :fetcher github
+                                                          :repo "luyangliuable/copilot.el"
+                                                          :files ("*.el" "dist")))
                                       )
 
    ;; (beacon :location "~/beacon")

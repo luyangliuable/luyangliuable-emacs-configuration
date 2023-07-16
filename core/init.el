@@ -143,7 +143,7 @@ It should only modify the values of Spacemacs settings."
                          ;; doom-ayu-mirage
                          ;; doom-feather-dark ;; Elegance but dark
                          ;; solarized-dark ;; meh
-                         doom-feather-light ;; Elegance
+                         ;; doom-feather-light ;; Elegance
                          doom-oceanic-next ;; best looking theme
                          doom-zenburn ;; good on the eye (was zenburn)
                          green-screen ;; hacker
