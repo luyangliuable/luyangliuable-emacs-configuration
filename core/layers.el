@@ -56,6 +56,8 @@ This function should only modify configuration layer settings."
      java
      javascript
      json
+     power-mode
+     pdf
      markdown
      multiple-cursors
      org
@@ -92,6 +94,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '(parrot
                                       ;; slime ;; May not exist anymore
                                       beacon
+                                      org-noter
                                       (copilot :location (recipe
                                                           :fetcher github
                                                           :repo "luyangliuable/copilot.el"

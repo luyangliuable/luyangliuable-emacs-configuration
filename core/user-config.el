@@ -129,6 +129,7 @@ before packages are loaded."
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;                                   Enable Modes                              ;
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+      (setq javascript-indent-level 2)
       (parrot-mode)
       (beacon-mode)
       (fringe-mode "right-only")

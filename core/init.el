@@ -144,6 +144,7 @@ It should only modify the values of Spacemacs settings."
                          ;; doom-feather-dark ;; Elegance but dark
                          ;; solarized-dark ;; meh
                          ;; doom-feather-light ;; Elegance
+                         almost-mono-black
                          doom-oceanic-next ;; best looking theme
                          doom-zenburn ;; good on the eye (was zenburn)
                          green-screen ;; hacker
@@ -161,7 +162,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(spacemacs :separator butt :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)

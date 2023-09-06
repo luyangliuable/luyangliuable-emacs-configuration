@@ -16,5 +16,4 @@
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
-)
+This function is called at the very end of Spacemacs initialization.")
