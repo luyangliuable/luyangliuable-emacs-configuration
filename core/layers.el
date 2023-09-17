@@ -46,30 +46,30 @@ This function should only modify configuration layer settings."
      ;; xkcd
      ;; auto-completion
      c-c++
-     csharp
+     ;; csharp
      csv
      emacs-lisp
      emoji
      git
      helm
-     html
+     ;; html
      java
-     javascript
-     json
+     ;; javascript
+     ;; json
      power-mode
      pdf
      markdown
      multiple-cursors
      org
-     python
-     react
-     rust
+     ;; python
+     ;; react
+     ;; rust
      spell-checking
      sql
      syntax-checking
      themes-megapack
      treemacs
-     typescript
+     ;; typescript
      version-control
      yaml
      (lsp :variables
@@ -79,7 +79,7 @@ This function should only modify configuration layer settings."
             shell-default-position 'bottom)
      (colors :variables
              colors-colorize-identifiers 'all
-             colors-enable-nyan-cat-progress-bar t))
+             colors-enable-nyan-cat-progress-bar nil))
 
 
 
