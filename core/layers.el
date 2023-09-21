@@ -54,24 +54,24 @@ This function should only modify configuration layer settings."
      helm
      ;; html
      java
-     ;; javascript
+     javascript
      ;; json
      power-mode
      pdf
      markdown
      multiple-cursors
      org
-     ;; python
-     ;; react
-     ;; rust
+     python
+     react
+     rust
      spell-checking
      sql
      syntax-checking
      themes-megapack
      treemacs
-     ;; typescript
+     typescript
      version-control
-     yaml
+     ;; yaml
      (lsp :variables
           lsp-lens-enable t)
      (shell :variables
