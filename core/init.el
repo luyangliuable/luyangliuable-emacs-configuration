@@ -144,6 +144,7 @@ It should only modify the values of Spacemacs settings."
                          ;; doom-feather-dark ;; Elegance but dark
                          ;; solarized-dark ;; meh
                          ;; doom-feather-light ;; Elegance
+                         toxi
                          almost-mono-black
                          doom-oceanic-next ;; best looking theme
                          doom-zenburn ;; good on the eye (was zenburn)
@@ -176,7 +177,7 @@ It should only modify the values of Spacemacs settings."
                                :size 14.0
                                :weight ultra-light ;; thin, normal, bold, semi-bold, ultra-light
                                :width semi-condensed ) ;; normal, condensed, semi-condensed
-                               
+   
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"

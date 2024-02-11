@@ -5,6 +5,49 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  (defun replace-html-entities (start end)
+    "Replace < and > with &lt; and &gt;, and double newlines with newline and &nbsp; in the region."
+    (interactive "r")
+    (save-restriction
+      (narrow-to-region start end)
+      (goto-char (point-min))
+      (while (search-forward "<" nil t)
+        (replace-match "&lt;" nil t))
+      (goto-char (point-min))
+      (while (search-forward ">" nil t)
+        (replace-match "&gt;" nil t))
+      (goto-char (point-min))
+      (while (search-forward "\n\n" nil t)
+        (replace-match "\n&nbsp;\n" nil t))))
+
+  (evil-leader/set-key "x h" 'replace-html-entities)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;                                       helm                                  ;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; can press C-o to switch to the other list in helm otherwise make this t
+  (setq helm-move-to-line-cycle-in-source nil)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;                                    gptel                                    ;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  (ignore-errors
+    (prog
+     (setq gptel-log-level 'debug)
+     (setq-default gptel-model "mistral" ;Pick your default model
+                   gptel-backend (gptel-make-ollama "Ollama"
+                                   :host "localhost:11434"
+                                   :stream t
+                                   :models '("mistral")))))
+
+
+  (gptel-make-ollama "Ollama"             ;Any name of your choosing
+    :host "localhost:11434"               ;Where it's running
+    :stream t                             ;Stream responses
+    :models '("mistral"))          ;List of models
+
+
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;                                   copilot                                   ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -94,6 +137,8 @@ before packages are loaded."
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;                                   Key-bindings                              ;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Enter Key to save file
+  (evil-define-key 'normal 'global (kbd "RET") 'save-buffer)
 
   ;; Emacs Key-bindings
   (global-set-key (kbd "C-c b") 'luyang-spaceline-placeholder)
@@ -133,9 +178,10 @@ before packages are loaded."
       (parrot-mode)
       (beacon-mode)
       (fringe-mode "right-only")
+      (add-hook 'treemacs-mode-hook 'treemacs-follow-mode)
+      (require 'gptel)
       ;; When in treemacs mode disable follow mode
       ;; (scroll-bar-mode)
-      (add-hook 'treemacs-mode-hook 'treemacs-follow-mode)
       ;; (display-time)
       ;; (provide 'fira-code-mode)
       ;; (require 'dap-python)

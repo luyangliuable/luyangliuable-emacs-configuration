@@ -52,11 +52,10 @@ This function should only modify configuration layer settings."
      emoji
      git
      helm
-     ;; html
+     html
      java
      javascript
      ;; json
-     power-mode
      pdf
      markdown
      multiple-cursors
@@ -94,12 +93,13 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '(parrot
                                       ;; slime ;; May not exist anymore
                                       beacon
+                                      gptel
+                                      toxi-theme
                                       org-noter
                                       (copilot :location (recipe
                                                           :fetcher github
-                                                          :repo "luyangliuable/copilot.el"
-                                                          :files ("*.el" "dist")))
-                                      )
+                                                          :repo "copilot-emacs/copilot.el"
+                                                          :files ("*.el" "dist"))))
 
    ;; (beacon :location "~/beacon")
 
