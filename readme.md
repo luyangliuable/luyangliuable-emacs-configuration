@@ -16,3 +16,12 @@ Please note that these configurations are created for my personal use and may no
 I will be constantly updating and improving these configurations as I discover new ways to enhance my Spacemacs experience. If you have any questions or feedback, please don't hesitate to reach out to me.
 
 Thank you for visiting my Spacemacs configuration repository. I hope you find these configurations helpful in your own Spacemacs journey.
+
+## How to push?
+
+Since the tarball file containing the packages is very large you need to set postBuffer to `524288000`.
+
+```sh
+git config http.postBuffer 524288000
+git push
+```
